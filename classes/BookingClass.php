@@ -11,6 +11,12 @@ class BookingClass
         $scrape = new ScrapeClass();
 
         $postURL = rtrim($_POST['url'], '/');
+        
+        /**
+         * Save full path to dinner page for later
+         */
+        setcookie('baseURL', $postURL, time() + (86400 * 30)); // 86400 = 1 day
+
         $baseURL = $scrape->curl($postURL);
 
         /**
@@ -19,12 +25,6 @@ class BookingClass
         $xpath = $scrape->loadDOM($baseURL);
         $contactURL = $scrape->getHrefAttribute($xpath, '//li/a', 0);
         $cinemaURL = $scrape->getHrefAttribute($xpath, '//li/a', 1);
-        $dinnerURL = $scrape->getHrefAttribute($xpath, '//li/a', 2);
-
-        /**
-         * Save full path to dinner page for later
-         */
-        setcookie('dinnerURL', $postURL . $dinnerURL . '/', time() + (86400 * 30)); // 86400 = 1 day
 
         /**
          * Get friends link to their profiles
@@ -57,11 +57,11 @@ class BookingClass
 
 
         if (str_word_count($this->availableDays[0]) == 3)
-            $this->availableDays[0] = 'Fredag';
+            $this->availableDays[0] = '01';
         if (str_word_count($this->availableDays[1]) == 3)
-            $this->availableDays[1] = 'Lördag';
+            $this->availableDays[1] = '02';
         if (str_word_count($this->availableDays[2]) == 3)
-            $this->availableDays[2] = 'Söndag';
+            $this->availableDays[2] = '03';
 
         /**
          * Get data from cinema page
@@ -74,7 +74,7 @@ class BookingClass
         $movieArray = [];
 
         foreach ($getDays as $day) {
-            if (in_array($day->nodeValue, $this->availableDays)) {
+            if (in_array($day->getAttribute('value'), $this->availableDays)) {
                 foreach ($getMovies as $movie) {
 
                     $jsonURL = $scrape->curl($postURL . $cinemaURL . "/check?day=" . $day->getAttribute('value') . "&movie=" . $movie->getAttribute('value'));

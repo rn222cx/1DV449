@@ -66,7 +66,9 @@ class LayoutClass
             $ret .= '<ul>';
 
             foreach ($availableTables as $at) {
-                $ret .= "<li> Det finns ett ledigt bord mellan klockan {$at['time']} och {$at['endTime']} efter att sett filmen {$at['movie']} klockan {$at['movieTime']} </li>";
+                $ret .= "<li> Det finns ett ledigt bord mellan klockan {$at['time']} och {$at['endTime']} efter att sett filmen {$at['movie']} klockan {$at['movieTime']}
+                     <a href='book.php?tableValue={$at['tableValue']}'> Boka detta bord</a>
+                    </li>";
             }
             $ret .= '</ul>';
             return $ret;

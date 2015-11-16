@@ -8,14 +8,20 @@ class DinnerClass
     {
         $scrape = new ScrapeClass();
 
-        $baseURL = $_COOKIE['dinnerURL'];
+        $baseURL = $_COOKIE['baseURL'];
 
-//        $data = $scrape->curl($baseURL);
-//        $xpath = $scrape->loadDOM($data);
-//        $dinnerPath = $scrape->getHrefAttribute($xpath, '//li/a', 2);
+        $data = $scrape->curl($baseURL);
+        $xpath = $scrape->loadDOM($data);
+        $dinnerPath = $scrape->getHrefAttribute($xpath, '//li/a', 2);
 
-        $dinnerURL = $scrape->curl($baseURL);
+
+        $dinnerURL = $scrape->curl($baseURL . $dinnerPath . '/');
         $xpath = $scrape->loadDOM($dinnerURL);
+
+        $dinnerPath = $xpath->query('//form');
+        $postFormURL = $dinnerPath[0]->getAttribute('action');
+
+        setcookie('postFormURL', $baseURL . $postFormURL, time() + (86400 * 30)); // 86400 = 1 day
 
         $availableTime = $xpath->query('//input[@type="radio"]');
 
@@ -45,6 +51,7 @@ class DinnerClass
                 $availableTables[$i]['endTime'] = $endTime;
                 $availableTables[$i]['movie'] = $movieName;
                 $availableTables[$i]['movieTime'] = $selectedTime;
+                $availableTables[$i]['tableValue'] = $at->getAttribute('value');
                 $i++;
             }
 
@@ -52,4 +59,5 @@ class DinnerClass
 
         return $availableTables;
     }
+
 }

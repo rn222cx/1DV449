@@ -9,8 +9,10 @@ class ScrapeClass
      */
     public function curl($url)
     {
+        $userAgent = $_SERVER['HTTP_USER_AGENT'];
         // Assigning cURL options to an array
         $options = array(
+            CURLOPT_USERAGENT, $userAgent,
             CURLOPT_RETURNTRANSFER => TRUE,  // Setting cURL's option to NOT return the webpage data
             CURLOPT_URL => $url, // Setting cURL's URL option with the $url variable passed into the function
         );

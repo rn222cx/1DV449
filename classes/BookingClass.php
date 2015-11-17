@@ -11,7 +11,7 @@ class BookingClass
         $scrape = new ScrapeClass();
 
         $postURL = rtrim($_POST['url'], '/');
-        
+
         /**
          * Save full path to dinner page for later
          */

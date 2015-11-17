@@ -18,9 +18,12 @@ function postCurl($url, $postFields)
 {
     $ch = curl_init();  // Initialising cURL
 
+    $userAgent = $_SERVER['HTTP_USER_AGENT'];
+
     // $cookie = 'cookie.txt';  // Setting a cookie file to store cookie
     // curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);  // Setting cookiejar
     // curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie);  // Setting cookiefile
+    curl_setopt($ch, CURLOPT_URL, $userAgent); // Show my user agent to the owner
     curl_setopt($ch, CURLOPT_URL, $url); // Setting URL to POST to
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  // Setting cURL's option to NOT return the webpage data
     curl_setopt($ch, CURLOPT_POST, 1);  // Setting method as POST

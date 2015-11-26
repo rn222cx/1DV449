@@ -16,63 +16,62 @@ Formuläret har ingen validering mot vad som får skickas och kan därmed utsät
 
 För att utföra en XSS-attack kan angriparen injicera JavaScript eller HTML-kod i forumläret. Scriptet skickar användaren automatiskt till en annan domän som innehåller script för att fånga upp information om användaren. Vanligvis brukar sådan information vara sessionskakor. Allt detta kan ske utan att användaren märker någonting [2]. 
 
-För att åtgärda risken bör HTML-context strippas exempelvis (body, attribute, JavaScript, CSS, URL).
+För att åtgärda risken bör HTML-context strippas t.ex. (body, attribute, JavaScript, CSS, URL).
 Den input som kommer in genom formuläret måste valideras i det som får skickas såsom längd och special tecken. 
-Någon form av funktion som omvandla skadlig kod till en sträng kan vara lämplig. Exempelvis som metoden htmlentities() i PHP [2].
+Någon form av funktion som omvandlar skadlig kod till en sträng kan vara lämplig. Exempelvis som metoden htmlentities() i PHP [2].
 
 #### Autentisering
 
-autentiseringen behandlas genom vilken roll användaren är samt om userID är undifined i message/index. Problemet är att när användare loggar ut får userID värdet 0 och där med inte undifined.
+Autentiseringen behandlas genom vilken roll användaren har samt om userID är undifined i message/index.js Problemet är att när användaren loggar ut får userID värdet 0 och därmed inte undifined.
 
-Om någon har tillgång till användarens session kan denna persson direkt navigera till /message i url'en utan att logga in fast användaren har loggat ut [6].
+Om någon har tillgång till användarens session kan denne direkt navigera till /message i url'en utan att logga in fast användaren har loggat ut [6].
 
 En enkel lösning på problemet är att ange värdet `undifined` istället för `0` i req.session.userID = 0; som befinner sig i login/index.js
 
 #### Session hijack
 
-Sessionen har inte något som helst skydd från att någon annan kan använda den. Sessionen förstörs heller inte när användaren loggar ut och därmed kan angriparen fortsätta nyttja sessionen även fast användaren har loggat ut [3].
+Sessionen har inte något som helst skydd från att någon annan kan använda den. Sessionen förstörs heller inte när användaren loggar ut och därmed kan angriparen fortsätta nyttja sessionen trots att användaren har loggat ut [3].
 
-Genom en session hijack kan angriparen göra samma sak som användaren har behörighet till att göra.
+Genom en session hijack kan angriparen utföra samma förändringar som användaren har behörighet till att göra. Angripare övertar där med användarens roll.
 
 Det allra säkraste allternativet är att använda sig av HTTPS om man använder sig av en HTTPS anslutning.
-Andra förbättringar som kan göras är att slå på httpOnly i filen config/express.js som ger ett bättre skydd mot xss atacker [5].
+Andra förbättringar som kan göras är att slå på httpOnly i filen config/express.js som ger ett bättre skydd mot XSS-atacker [5].
 Det är lämpligt att förstöra sessionen genom att implementera `req.session.destroy()` i logout funktionen i login/index.js.
 
 #### Hashning/kryptering av lösenord
 
 Lösenorden har inte någon form av hashning eller kryptering.
 
-Skulle någon komma över databasen kommer denna kunna se lösenorden i klartext.
+Problemet med obehandlade lösenord är att de syns som klartext i databasen.
 
-Det finns metoder så som md5 och sha1 för att hascha lösenorden men tyvärr går dessa metoder att bruteforca och är sårbara för rainbow attacker.
+Det finns metoder så som md5 och sha1 för att hascha lösenorden men tyvärr går dessa metoder att bruteforca och är sårbara för rainbow-attacker.
 För att få ett bra skydd med saltning kan man använda sig av bcrypt [4]
 
 ### CSRF
 
-fortsätta skriva
-Applikationen använder inte av token i sina formulär som kan leda till CSRF attacker.
+Applikationen använder inte token i formulären vilket öppna för CSRF attacker.
 
-Attackeraren kan exempelvis skicka en länk till användaren som innehåller script som är farligt för användaren. Oftast bruka scriptet innehålla en img tag som innehåller länken till sidan attackeraren vill åt samt värden han vill skicka i något formulär. Varför just en img tagg är för att den laddas in automatiskt vid sidladdning [7].
+Angriparen kan exempelvis skicka en länk till användaren som innehåller script med skadlig kod. Oftast brukar scriptet innehålla en img-tag vilken innehåller länken till den sidan  angriparen vill åt samt värden han vill skicka i något formulär. Användet av en img-tagg är för att den laddas in automatiskt vid sidladdning [7].
 
-För att förhindra CSRF attacker kan ett gömt värde kallad för tokens implementeras i formulären. Token värdet kan skapas som en session och ska genereras ett nytt värde för varje sidhämtning [7].
+För att förhindra CSRF attacker kan ett gömt värde, kallad tokens, implementeras i formulären. Token värdet kan skapas som en session och ska generera ett nytt värde för varje sidhämtning [7].
 
 
 ## Prestandaproblem (front-end)
 
-Remove messages i admin vyn funkar inte då rad 18 i messageBoard.js är bortkommenterat, Vill man förhindra att flera ikoner dyker upp vid varje tryck tillfälle så kan man köra functionen `MessageBoard.renderMessages();` i logout funktionen.
-Funktionen samt id'et kallas även för logout som inte är fullt passande namn i detta ändamålet.
+Remove messages i admin vyn fungerar inte då rad 18 i messageBoard.js är bortkommenterat, Vill man förhindra att flera ikoner dyker upp vid varje knapp tryckning tillfälle så kan man köra funktionen `MessageBoard.renderMessages();` i logout funktionen.
+Funktionen samt id'et kallas även för logout vilket inte är ett fullt passande namn i detta sammanhang.
 
-Logout länken kommer alltid att synas då den laddas in i default.html och är inte passande om man inte är inloggad.
+Att logout länken alltid syns är förrvirande och är inte estetisk tilltalande för applikationen.
 
-MessageBoard.js och Message.js laddas in i header.html och kommer laddas in på sidor de inte används samt ger felmeddelanden.
+MessageBoard.js och Message.js laddas in i header.html och kommer att laddas in de på sidor de inte används samt ger felmeddelanden.
 
-nedanstående filer anges i appModules/siteViews/partials/header.html men finns inte.
-404 cant be found in static/js/materialize.js
-404 cant be found in static/css/materialize.min.css
+Nedanstående filer anges i appModules/siteViews/partials/header.html men finns inte.
+404 Not found in static/js/materialize.js
+404 Not found in static/css/materialize.min.css
 
-filen ie10-viewport-bug-workaround.js anges i filen appModules/login/views/index.html men den finns inte och sänder ut ett 404.
+Filen ie10-viewport-bug-workaround.js anges i filen appModules/login/views/index.html men den finns inte och sänder ut ett 404.
 
-css koden bör flyttas till en eller flera css filer.
+CSS koden bör flyttas till en eller flera CSS filer.
 
 
 ## Egna övergripande reflektioner

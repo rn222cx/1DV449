@@ -4,7 +4,7 @@
 
 #### SQL injections
 
-inloggningsfunktionen i login/lib/login.js använder variablerna "username" och "password" direkt i sql-queryn utan någon form av validering och är därmed oskyddad mot SQL injections.
+Inloggningsfunktionen i login/lib/login.js använder variablerna "username" och "password" direkt i sql-queryn utan någon form av validering och är därmed oskyddad mot SQL injections.
 
 Exempelvis kan denna input `Bob' OR '1'='1` användas som lösenord för att komma in på sidan då koden returnerar sant, attackeraren behöver inte ens ange rätt användarnamn eftersom den alltid tar den första användaren i databastabellen. [1].
 
@@ -14,7 +14,7 @@ Problemet kan åtgärdas med parametriserad fråga och även någon form av whit
 
 Formuläret har ingen validering mot vad som får skickas och kan därmed utsättas för XXS-attacker [2].
 
-Genom en xss-attack kan angriparen injicera JavaScript i forumläret som då skickar användaren till en ful sida och samla information från användaren exempelvis sessions kakor utan att användaren vet om det då det sker en redirect till och från ful sidan [2]. 
+För att utföra en XSS-attack kan angriparen injicera JavaScript eller HTML script i forumläret. scriptet kan skickar användaren automatiskt till en annan domän som innehåller script för att fånga upp information om användaren, vanligvis brukar sådan information vara sessions kakor. Allt detta kan ske utan att användaren märker någonting [2]. 
 
 För att åtgärda risken bör html context stripas exempelvis (body, attribute, JavaScript, CSS, URL).
 Validering av vad som får skickas så som längd och special tecken. 

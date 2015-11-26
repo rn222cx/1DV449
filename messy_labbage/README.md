@@ -14,11 +14,11 @@ Problemet kan åtgärdas med parametriserad fråga och även någon form av whit
 
 Formuläret har ingen validering mot vad som får skickas och kan därmed utsättas för XXS-attacker [2].
 
-För att utföra en XSS-attack kan angriparen injicera JavaScript eller HTML script i forumläret. scriptet kan skickar användaren automatiskt till en annan domän som innehåller script för att fånga upp information om användaren, vanligvis brukar sådan information vara sessions kakor. Allt detta kan ske utan att användaren märker någonting [2]. 
+För att utföra en XSS-attack kan angriparen injicera JavaScript eller HTML-kod i forumläret. Scriptet skickar användaren automatiskt till en annan domän som innehåller script för att fånga upp information om användaren. Vanligvis brukar sådan information vara sessionskakor. Allt detta kan ske utan att användaren märker någonting [2]. 
 
-För att åtgärda risken bör html context stripas exempelvis (body, attribute, JavaScript, CSS, URL).
-Validering av vad som får skickas så som längd och special tecken. 
-Implementation av funktion som fungerar som htmlentities() i PHP som omvandla skadlig kod till en sträng [2].
+För att åtgärda risken bör HTML-context strippas exempelvis (body, attribute, JavaScript, CSS, URL).
+Den input som kommer in genom formuläret måste valideras i det som får skickas såsom längd och special tecken. 
+Någon form av funktion som omvandla skadlig kod till en sträng kan vara lämplig. Exempelvis som metoden htmlentities() i PHP [2].
 
 #### Autentisering
 

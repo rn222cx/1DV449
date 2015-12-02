@@ -76,8 +76,8 @@ Vet inte varför denna funktion finns men om tanken är att endast användarna s
 MessageBoard.js och Message.js laddas in i header.html och kommer att laddas in de på sidor de inte används samt ger felmeddelanden.
 
 Nedanstående filer anges i appModules/siteViews/partials/header.html men finns inte.
-..* 404 Not found in static/js/materialize.js
-..* 404 Not found in static/css/materialize.min.css
+  404 Not found in static/js/materialize.js
+  404 Not found in static/css/materialize.min.css
 
 Filen ie10-viewport-bug-workaround.js anges i filen appModules/login/views/index.html men den finns inte och sänder ut felmeddelande 404.
 

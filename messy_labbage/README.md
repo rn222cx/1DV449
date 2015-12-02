@@ -79,7 +79,7 @@ Nedanstående filer anges i appModules/siteViews/partials/header.html men finns 
 - 404 Not found in static/js/materialize.js
 - 404 Not found in static/css/materialize.min.css
 
-Filen ie10-viewport-bug-workaround.js anges i filen appModules/login/views/index.html men den finns inte och sänder ut felmeddelande 404.
+Filen ie10-viewport-bug-workaround.js anges i filen appModules/login/views/index.html men den finns inte och sänder ut ett 404 felmeddelande.
 
 Google fonten som laddas in i headern används inte och skapa onödiga HTTP requests [11].
 

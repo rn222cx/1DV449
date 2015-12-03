@@ -86,6 +86,8 @@ Filen ie10-viewport-bug-workaround.js anges i filen appModules/login/views/index
 
 Google fonten som laddas in i headern används inte och skapa onödiga HTTP requests [11].
 
+bilden b.jpg laddas in i sidan /message och används inte, detta skapa onödiga HTTP requests [11].
+
 Mycket av CSS koden befinner sig nedanför HTML koden, detta ger sämre upplevelse för användaren då det visas en vit sida längre än om CSS koden hade varit i toppen av sidan [9].
 All CSS kod bör flyttas till en CSS fil för bättre struktur och prestanda [8].
 

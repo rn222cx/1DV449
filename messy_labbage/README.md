@@ -17,7 +17,7 @@ Formuläret har ingen validering mot vad som får skickas och kan därmed utsät
 För att utföra en XSS-attack kan angriparen injicera JavaScript eller HTML-kod i forumläret. Scriptet skickar användaren automatiskt till en annan domän som innehåller script för att fånga upp information om användaren. Vanligvis brukar sådan information vara sessionskakor. Allt detta kan ske utan att användaren märker någonting [2]. 
 
 För att åtgärda risken bör HTML-context strippas t.ex. (body, attribute, JavaScript, CSS, URL).
-Den input som kommer in genom formuläret måste valideras i det som får skickas såsom längd och special tecken. 
+Den input som kommer in genom formuläret måste valideras i det som får skickas såsom längd och specialtecken. 
 Någon form av funktion som omvandlar skadlig kod till en sträng kan vara lämplig. Exempelvis som metoden htmlentities() i PHP [2].
 
 #### Autentisering
@@ -30,13 +30,13 @@ En enkel lösning på problemet är att ange värdet `undifined` istället för 
 
 #### Session hijack
 
-Sessionen har inte något som helst skydd från att någon annan kan använda den. Sessionen förstörs heller inte när användaren loggar ut och därmed kan angriparen fortsätta nyttja sessionen trots att användaren har loggat ut [3].
+Sessionen har inte något som helst skydd för att någon annan kan använda den. Sessionen förstörs heller inte när användaren loggar ut och därmed kan angriparen fortsätta nyttja sessionen trots att användaren har loggat ut [3].
 
-Genom en session hijack kan angriparen utföra samma förändringar som användaren har behörighet till att göra. Angripare övertar där med användarens roll.
+Genom en session hijack kan angriparen utföra samma förändringar som användaren har behörighet till att göra. Angripare övertar därmed användarens roll.
 
-Det allra säkraste allternativet är att använda sig av HTTPS om man använder sig av en HTTPS anslutning.
+Det allra säkraste alternativet är att använda sig av HTTPS om man använder sig av en HTTPS anslutning.
 Andra förbättringar som kan göras är att aktivera httpOnly i filen config/express.js som ger ett bättre skydd mot XSS-atacker, httpOnly hjälper till att minska risken för script tillträde på klientsidan i kakan [5].
-Att skapa nytt sessions id för varje sidhämtning försvåra för angriparen då sessions id'et blir oanvänbart vid nästa sidhämtning användaren gör.
+Att skapa nytt sessions id för varje sidhämtning försvårar för angriparen då sessions id'et blir oanvändbart vid nästa sidhämtning användaren gör.
 Det är lämpligt att förstöra sessionen genom att implementera `req.session.destroy()` i logout funktionen i login/index.js.
 
 #### Hashning/kryptering av lösenord
@@ -52,7 +52,7 @@ För att få ett bra skydd med saltning kan man använda sig av bcrypt [4]
 
 Applikationen använder inte token i formulären vilket öppna för CSRF attacker.
 
-Angriparen kan exempelvis skicka en länk till användaren som innehåller script med skadlig kod. Oftast brukar scriptet innehålla en img-tag vilken innehåller länken till den sidan  angriparen vill åt samt värden han vill skicka i något formulär. Användet av en img-tagg är för att den laddas in automatiskt vid sidhämtning [7].
+Angriparen kan exempelvis skicka en länk till användaren som innehåller script med skadlig kod. Oftast brukar scriptet innehålla en img-tag vilken innehåller länken till den sidan angriparen vill åt samt värden han vill skicka i något formulär. Användet av en img-tagg är för att den laddas in automatiskt vid sidhämtning [7].
 
 För att förhindra CSRF attacker kan ett gömt värde, kallad tokens, implementeras i formulären. Token värdet kan skapas som en session och ska generera ett nytt värde för varje sidhämtning [7].
 
@@ -70,7 +70,7 @@ Information om meddelanden ligger åtkomlig i http://localhost:8080/message/data
 
 Genom att ange sökvägen syns alla meddelanden samt vem som har skapat dem.
 
-Vet inte varför denna funktion finns men om tanken är att endast användarna ska kunna komma åt datan så krävs någon form av autentisering.
+Funktionens användningsområde är diffust men om tanken är att endast användarna ska kunna komma åt datan så krävs någon form av autentisering.
 
 ## Prestandaproblem (front-end)
 
@@ -88,9 +88,9 @@ Mycket av CSS koden befinner sig nedanför HTML koden, detta ger sämre upplevel
 All CSS kod bör flyttas till en CSS fil för bättre struktur och prestanda [8].
 
 Samma som med CSS bör JavaScript koder som är utspridda i HTML filerna flyttas till egen fil för att få bättre prestanda och struktur [8].
-JavaScript filer Läses in snabbare om de blir minifierade, det finns flera filer som bör minifieras exempelvis i katalogen static/javascript så som jquery.js och bootstrap.js. Visserligen används inte bootstrap.js i applicationen men om den skulle för framtisa bruk [10].
+JavaScript filer Läses in snabbare om de blir minifierade, det finns flera filer som bör minifieras exempelvis i katalogen static/javascript så som jquery.js och bootstrap.js. Visserligen används inte bootstrap.js i applicationen men om den skulle för framtida bruk [10].
 
-Något som inte används och kan snabba upp applikationen är att cascha med Gzip. Det som främst behöver caschas är script och css [12].
+Något som inte används och kan snabba upp applikationen är att cascha med Gzip. Det som främst behöver caschas är script och CSS [12].
 Det verkar inte enkelt att använda sig av Gzip uttan något bibliotek/ramverk för node.js, exempel på sådant kan vara Zlib https://nodejs.org/api/zlib.html
 
 Remove messages i admin vyn fungerar inte då rad 18 i messageBoard.js är bortkommenterat. Vill man förhindra att flera ikoner dyker upp vid varje knapp trycknings tillfälle kan man köra funktionen `MessageBoard.renderMessages();` i logout funktionen.

@@ -76,7 +76,7 @@ För att förhindra obehöriga att få tillgång till ovanstående problem kan m
 
 ## Prestandaproblem (front-end)
 
-MessageBoard.js och Message.js laddas in i header.html och kommer att laddas in de på sidor de inte används samt ger felmeddelanden.
+MessageBoard.js och Message.js laddas in i header.html och kommer att laddas in på sidor de inte används och sänder ut felmeddelanden samt skapa onödiga HTTP requests [11].
 
 Nedanstående filer anges i appModules/siteViews/partials/header.html men finns inte.
 - 404 Not found in static/js/materialize.js

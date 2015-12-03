@@ -106,15 +106,15 @@ Det finns tomma filer samt filer som inte används i applikationen.
 
 ## övergripande reflektioner
 
-Laboratioen har gett mig ett större säkerhets tänk Tack vare OWASP Top 10 dokument som listar de 10 största säkerhetshålen som kan förekomma i en webbapplikation samt en applikation som innehåller säkerhetshål som OWASP beskriver och kan där med använda mig av det i praktiken.
+Laboratioen har gett mig ett större säkerhetstänk tack vare OWASP Top 10 dokument som listar de 10 största säkerhetshålen som kan förekomma i en webbapplikation, samt en applikation som innehåller säkerhetshål som OWASP beskriver och jag kan därmed använda mig av det i praktiken.
 
-Mycket av säkerhetshålen har vi pratat om innan men inte avnvänt oss av i praktiken som ger en större inblick i det hela.
-Jag har fått uppfattningen att det går inte skydda sig mot allt men det krävs inte mycket skydd för att försvåra det väldigt mycket för den som vill försöka sig på att hacka sidan.
+Mycket av säkerhetshålen har vi pratat om innan men inte avnvänt oss av i praktiken. Att nu direkt använda detta ger en större inblick i det hela.
+Jag har fått uppfattningen att det går inte skydda sig mot allt men det krävs heller inte mycket skydd för att försvåra det avsevärt för den som vill försöka sig på att hacka sidan.
 
-När det kommer till front-end optimering var vissa saker väldigt självklara, exempelvis hur man ska hantera JavaScript och CSS. Men det fräsha upp minnet lite grann som kan behövas.
-Men vad det gäller cashning och HTTP var det mesta nytt och lärorikt, Kanske lite väl mycket om HTTP.
+När det kommer till front-end optimering var vissa saker väldigt självklara, exempelvis hur man ska hantera JavaScript och CSS. Men att repetera gör att det ger djupare kunskaper som sitter kvar längre.
+Men vad det gäller cashning och HTTP var det mesta nytt och lärorikt, det var kanske för mig lite väl mycket om HTTP.
 
-Applikationen var skriven i node.js som var helt nytt för mig, ändå var det inga större problem att komma igång och kunna förstå applikationen men samtidigt har jag knappt lärt mig något om självaste node.js i sig.
+Applikationen var skriven i node.js som var helt nytt för mig, ändå var det inga större problem att komma igång och kunna förstå applikationen. Men samtidigt har jag knappt lärt mig något om självaste node.js i sig, en förståelse jag har fått nu gör ändå att det blir lättare att söka och ta till mig den kunskap jag behöver i detta senare.
 
 
 ## Referenser

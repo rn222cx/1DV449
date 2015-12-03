@@ -64,13 +64,15 @@ Genom att ange sökvägen till databasen i URLen laddas databasen ner. Databasen
 
 Genom att lägga databasen bakom root katalogen kommer inte någon användare åt databasen genom URLen. 
 
-#### Åtkomliga meddelanden
+#### Insecure direct object references
 
-Information om meddelanden ligger åtkomlig i http://localhost:8080/message/data
+Information om meddelanden ligger åtkomlig i JSON format genom att navigera till /message/data.
+En POST funktion finns att tillgå för att radera meddelanden genom sökvägen /message/delete [13].
 
-Genom att ange sökvägen syns alla meddelanden samt vem som har skapat dem.
+Genom att ange sökvägen till /message/data kan angriparen samla information om meddelanden.
+Det går även radera meddelanden genom en POST förfrågan till /message/delete och skicka med messageID som data med meddelandets id som värde. 
 
-Funktionens användningsområde är diffust men om tanken är att endast användarna ska kunna komma åt datan så krävs någon form av autentisering.
+För att förhindra obehöriga att få tillgång till ovanstående problem kan man lösa det genom Autentisering [13].
 
 ## Prestandaproblem (front-end)
 
@@ -130,3 +132,5 @@ Det finns tomma filer samt filer som inte används i applikationen.
 [11] Steve Souders, High Performance Web Sites: Rule 1: Make Fewer HTTP Requests, O'Reilly, 2007. [Online-PDF] http://www.it.iitb.ac.in/frg/wiki/images/4/44/Oreilly.Seve.Suoders.High.Performance.Web.Sites.Sep.2007.pdf [Hämtad: 30 november, 2015].
 
 [12] Steve Souders, High Performance Web Sites: Rule 4: Gzip Components, O'Reilly, 2007. [Online-PDF] http://www.it.iitb.ac.in/frg/wiki/images/4/44/Oreilly.Seve.Suoders.High.Performance.Web.Sites.Sep.2007.pdf [Hämtad: 30 november, 2015].
+
+[13] OWASP foundation, "Top 10 2013-A4-Insecure Direct Object References", 14 Juni 2013 [Online] Tillgänglig: https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References [Hämtad: 3 december, 2015].

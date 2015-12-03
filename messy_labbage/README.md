@@ -104,7 +104,7 @@ Att logout länken alltid syns är förrvirande och är inte estetisk tilltaland
 
 Det finns tomma filer samt filer som inte används i applikationen.
 
-## Egna övergripande reflektioner
+## övergripande reflektioner
 
 Laboratioen har gett mig ett större säkerhets tänk Tack vare OWASP Top 10 dokument som listar de 10 största säkerhetshålen som kan förekomma i en webbapplikation samt en applikation som innehåller säkerhetshål som OWASP beskriver och kan där med använda mig av det i praktiken.
 

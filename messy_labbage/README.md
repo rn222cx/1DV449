@@ -106,7 +106,15 @@ Det finns tomma filer samt filer som inte används i applikationen.
 
 ## Egna övergripande reflektioner
 
+Laboratioen har gett mig ett större säkerhets tänk Tack vare OWASP Top 10 dokument som listar de 10 största säkerhetshålen som kan förekomma i en webbapplikation samt en applikation som innehåller säkerhetshål som OWASP beskriver och kan där med använda mig av det i praktiken.
 
+Mycket av säkerhetshålen har vi pratat om innan men inte avnvänt oss av i praktiken som ger en större inblick i det hela.
+Jag har fått uppfattningen att det går inte skydda sig mot allt men det krävs inte mycket skydd för att försvåra det väldigt mycket för den som vill försöka sig på att hacka sidan.
+
+När det kommer till front-end optimering var vissa saker väldigt självklara, exempelvis hur man ska hantera JavaScript och CSS. Men det fräsha upp minnet lite grann som kan behövas.
+Men vad det gäller cashning och HTTP var det mesta nytt och lärorikt, Kanske lite väl mycket om HTTP.
+
+Applikationen var skriven i node.js som var helt nytt för mig, ändå var det inga större problem att komma igång och kunna förstå applikationen men samtidigt har jag knappt lärt mig något om självaste node.js i sig.
 
 
 ## Referenser

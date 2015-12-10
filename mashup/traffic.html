@@ -1,0 +1,91 @@
+<html>
+
+   <head>
+      <title>The jQuery Example</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+      <script type = "text/javascript" src ="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+      <script type = "text/javascript" language = "javascript">
+
+
+          // $.getJSON('getData.php', function(data) {
+          //   $.each(data.messages, function(){
+          //     $('#stage').append('<p> Title: ' + this['title'] + '</p>');
+          //     $('#stage').append('<p> Latitude : ' + this["latitude"]+ '</p>');
+          //     $('#stage').append('<p> Longitude : ' + this["longitude"]+ '</p>');
+          //     $('#stage').append('<p> Description : ' + this["description"]+ '</p>');
+          //    });
+          // });
+
+    var markers = [];
+
+    // $.getJSON('getData.php', function(data) {
+    //   $(data.messages).each(function(index, value){
+         
+    //      markers.push(value.title);
+    //     //$('#stage').append('<p> Title: ' + this['title'] + '</p>');
+        
+    //    });
+    //   console.log(markers);
+    // });
+
+    $.ajax({
+      url: 'getData.php',
+      dataType: 'json',
+      type: 'get',
+      success: function(data){
+      $(data.messages).each(function(index, value){
+         markers.push(value.title);
+       });
+         // console.log(markers);
+      }
+
+    });
+    
+         $(document).ready(function() {
+            $("#driver").click(function(event){
+               console.log(markers);
+            });
+         });
+console.log(markers);
+               //          var markers = [];
+               // $.getJSON('getData.php', function(data) {
+               //    $.each(data.messages, function(i, messages){
+               //         markers.push({
+               //             title: this.title, 
+                           
+               //         });
+               //       });
+               // });
+    
+//                var obj = {};
+
+// $.getJSON("displayjson.php",function (data) {
+//     $.each(data.news, function (i, news) {
+//         obj[news.title] = news.link;
+//     });                      
+// });
+
+  
+      </script>
+   </head>
+  
+   <body>
+      <p id="demo"></p>
+  
+      <p>Click on the button to load result.html file:</p>
+    
+      <div id = "stage" style = "background-color:#cc0;">
+         STAGE
+      </div>
+    
+      <input type = "button" id = "driver" value = "Load Data" />
+    <script>
+
+    markers.toString();
+    document.getElementById("demo").innerHTML = markers;
+
+</script>
+   </body>
+  
+</html>

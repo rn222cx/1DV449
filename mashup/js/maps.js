@@ -23,27 +23,36 @@ function initMap() {
 
                 var obj = data.messages[key];
 
-                var date = obj.createddate;
+                var category = obj.category;
                 var readableDate = doDateReadable(obj.createddate);
-                var title = obj.title;
-                var description = obj.description;
-                var latitude = obj.latitude;
-                var longitude = obj.longitude;
 
+                if(category == 0){
+                    category = "Vägtrafik";
+                }
+                if(category == 1){
+                    category = "Kollektivtrafik";
+                }
+                if(category == 2){
+                    category = "Planerad störning";
+                }
+                if(category == 3){
+                    category = "Övrigt";
+                }
 
-                myLatlng = new google.maps.LatLng(latitude, longitude);
+                myLatlng = new google.maps.LatLng(obj.latitude, obj.longitude);
 
                 allMarkers = new google.maps.Marker({
                     position: myLatlng,
                     map: map,
                     date: readableDate,
-                    createddate: date,
+                    createddate: obj.createddate,
                     animation: google.maps.Animation.DROP,
-                    title: title,
+                    title: obj.title,
                     html: '<div class="markerPop">' +
-                    '<h1>' + title + '</h1>' + //substring removes distance from title
-                    '<p>' + description + '</p>' +
-                    '<p>' + readableDate + '</p>' +
+                    '<h4>' + obj.title + '</h4>' +
+                    '<p><b>Datum: </b>' + readableDate + '</p>' +
+                    '<p><b>Beskrivning: </b>' + obj.description + '</p>' +
+                    '<p><b>Kategori: </b>' + category + '</p>' +
                     '</div>'
                 });
 
@@ -65,7 +74,6 @@ function initMap() {
                     infoWindow.setContent(this.html);
                     infoWindow.open(map, this);
                 });
-
 
             }
 
@@ -101,7 +109,7 @@ function initMap() {
                     var li = document.createElement("li");
                     ul.appendChild(li);
                     //var title = marker.getTitle();
-                    li.innerHTML = entry.date + entry.title;
+                    li.innerHTML = entry.date + " " + entry.title;
 
                     //Trigger a click event to marker when the list item is clicked.
                     google.maps.event.addDomListener(li, "click", function () {
@@ -114,7 +122,7 @@ function initMap() {
 
             function doDateReadable(date) {
                 var months = [
-                    "Januari", "Februari", "Mars", "April", "Mars", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"
+                    "Jan", "Feb", "Mar", "Apr", "Mar", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
                 ];
 
                 //Remove unwanted strings
@@ -124,7 +132,12 @@ function initMap() {
                 //convert it into an integer and format it to an date
                 date = parseInt(date);
                 date = new Date(date);
-                date = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
+                hour = date.getHours();
+                hour = ("0" + hour).slice(-2);
+                minute = date.getHours();
+                minute = ("0" + minute).slice(-2);
+                date = date.getFullYear() + "-" + months[date.getMonth()] + "-" + date.getDate()
+                    + " " + hour + ":" + minute;
 
                 return date;
             }

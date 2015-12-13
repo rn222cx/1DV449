@@ -1,12 +1,19 @@
-html, body { height: 100%; margin: 0; padding: 0; }
-#map { height: 100%; }
-.markerPop{ width: 200px;}
-#marker_list{float: right; width: 30%; min-height: 30%}
-#ul1{background-color: crimson;}
-#ul2{background-color: aqua;}
-#ul3{background-color: chartreuse;}
-#ul4{background-color: #cccc00;}
+html, body { height: 100%; background-color: #B3D1FF }
+main{height:100%;}
+#map { height: 100%; width: 70%; float: left;}
+.topMenu{background-color: #B3D1FF;}
 
+ul{ list-style-type: none; padding: 5px; border-radius: 30px; padding-bottom: 25px;}
+ul h3{text-align: center;}
+#marker_list{float: right; width: 30%; height: 100%; background-color: #E4E4E4; overflow: scroll; }
+#ul1{background-color: #ff9999;}
+#ul1 li{background-color: #F2DEDE; margin: 5px;}
+#ul2{background-color: #6BC2EC;}
+#ul2 li{background-color: #D9EDF7; margin: 5px;}
+#ul3{background-color: #B0F395;}
+#ul3 li{background-color: #DFF0D8; margin: 5px;}
+#ul4{background-color: #F0AD4E;}
+#ul4 li{background-color: #FCF8E3; margin: 5px;}
 
 /* Hiding the checkbox, but allowing it to be focused */
 .badgebox

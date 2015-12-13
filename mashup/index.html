@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <link rel="stylesheet" href="css/style.css">
-      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-      <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  </head>
-  <body>
-
-  <div class="container">
-      <div class="row text-center">
-          <label for="btn1" class="btn btn-danger">Primary <input type="checkbox" checked id="btn1" class="badgebox"><span class="badge">&check;</span><span id="markCount1"> </span></label>
-          <label for="btn2" class="btn btn-info">Info <input type="checkbox" checked id="btn2" class="badgebox"><span class="badge">&check;</span><span id="markCount2"> </span></label>
-          <label for="btn3" class="btn btn-success">Success <input type="checkbox" checked id="btn3" class="badgebox"><span class="badge">&check;</span><span id="markCount3"> </span></label>
-          <label for="btn4" class="btn btn-warning">Warning <input type="checkbox" checked id="btn4" class="badgebox"><span class="badge">&check;</span><span id="markCount4"> </span></label>
-      </div>
-  </div>
-
-  <div id="marker_list">
-      <ul id="ul1"></ul>
-      <ul id="ul2"></ul>
-      <ul id="ul3"></ul>
-      <ul id="ul4"></ul>
-  </div>
-  <div id="map"></div>
-  
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmaPG9255LaIuuqvNtWzK9SkIpLy_MA6o&callback=initMap">
-    </script>
-  <script type = "text/javascript" src ="js/maps.js"></script>
-  </body>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<main>
+    <div class="topMenu">
+        <div class="row text-center">
+            <label for="btn1" class="btn btn-danger">Vägtrafik <input type="checkbox" checked id="btn1" class="badgebox"><span
+                    class="badge">&check;</span><span id="markCount1"> </span></label>
+            <label for="btn2" class="btn btn-info">Kollektivtrafik <input type="checkbox" checked id="btn2" class="badgebox"><span
+                    class="badge">&check;</span><span id="markCount2"> </span></label>
+            <label for="btn3" class="btn btn-success">Planerad störning <input type="checkbox" checked id="btn3" class="badgebox"><span
+                    class="badge">&check;</span><span id="markCount3"> </span></label>
+            <label for="btn4" class="btn btn-warning">Övrigt <input type="checkbox" checked id="btn4" class="badgebox"><span
+                    class="badge">&check;</span><span id="markCount4"> </span></label>
+        </div>
+    </div>
+    <div id="marker_list">
+        <ul id="ul1"><h3>Vägtrafik</h3></ul>
+        <ul id="ul2"><h3>Kollektivtrafik</h3></ul>
+        <ul id="ul3"><h3>Planerad Störning</h3></ul>
+        <ul id="ul4"><h3>Övrigt</h3></ul>
+    </div>
+    
+    <div id="map"></div>
+</main>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmaPG9255LaIuuqvNtWzK9SkIpLy_MA6o&callback=initMap">
+</script>
+<script type="text/javascript" src="js/maps.js"></script>
+</body>
 </html>

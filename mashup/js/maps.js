@@ -149,8 +149,8 @@ function initMap() {
         return date;
     }
 
-    // Toggle markers when click
-    function addOnclick(index) {
+    // Toggle markers and list when click
+    function toggleOnClick(index) {
         document.getElementById("btn" + index).addEventListener("click", function () {
             $("#ul" + index).toggle();
 
@@ -169,7 +169,7 @@ function initMap() {
         });
     }
 
-    for (var i = 1; i < 5; i++) addOnclick(i);
+    for (var i = 1; i < 5; i++) toggleOnClick(i);
 
 
 }

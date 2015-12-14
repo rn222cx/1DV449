@@ -11,10 +11,11 @@ Om anropet ger status kod 200 samt om filen är äldre än 5 minuter kommer ny d
 
 ## Vad finns det för risker kring säkerhet och stabilitet i din applikation?
 Jag har ingen validering om vilken data som kommer från SR så skadlig kod kan drabba applikationen.
+Kravet för att applikationen ska behålla sin stabilitet är att google maps api är stabilt.
 
 ## Hur har du tänkt kring säkerheten i din applikation?
 Att inte använda några input fält som kan skicka in skadlig kod.
 
 ## Hur har du tänkt kring optimeringen i din applikation?
 All css och javascript bibliotek är av minimerad version.
-Applikationen är helt dynamisk och kräver inga sidomladdningar
+Applikationen är helt dynamisk och kräver inga sidomladdningar.

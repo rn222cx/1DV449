@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forecast.Domain", "Forecast.Domain\Forecast.Domain.csproj", "{C30493D1-25F9-442A-B499-5F8BE51ECC3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forecast.MVC", "Forecast.MVC\Forecast.MVC.csproj", "{266EBD4B-5DA6-4ECB-8749-E19155A5BC82}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C30493D1-25F9-442A-B499-5F8BE51ECC3C} = {C30493D1-25F9-442A-B499-5F8BE51ECC3C}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C30493D1-25F9-442A-B499-5F8BE51ECC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30493D1-25F9-442A-B499-5F8BE51ECC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30493D1-25F9-442A-B499-5F8BE51ECC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30493D1-25F9-442A-B499-5F8BE51ECC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266EBD4B-5DA6-4ECB-8749-E19155A5BC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266EBD4B-5DA6-4ECB-8749-E19155A5BC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266EBD4B-5DA6-4ECB-8749-E19155A5BC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266EBD4B-5DA6-4ECB-8749-E19155A5BC82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

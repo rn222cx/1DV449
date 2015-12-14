@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Forecast.Domain.Forecast>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    @foreach(var forecast in Model)
+    {
+        <h3>
+            @forecast.City
+        </h3>
+        @*<p>
+            @forecast.Temp
+        </p>*@
+    }
+</div>

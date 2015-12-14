@@ -26,16 +26,16 @@ function initMap() {
                 var category = obj.category;
                 var readableDate = doDateReadable(obj.createddate);
 
-                if(category == 0){
+                if (category == 0) {
                     category = "Vägtrafik";
                 }
-                if(category == 1){
+                if (category == 1) {
                     category = "Kollektivtrafik";
                 }
-                if(category == 2){
+                if (category == 2) {
                     category = "Planerad störning";
                 }
-                if(category == 3){
+                if (category == 3) {
                     category = "Övrigt";
                 }
 
@@ -77,19 +77,12 @@ function initMap() {
 
             }
 
+            // Display number of event on the buttons
             document.getElementById("markCount1").innerHTML = " " + markerArr1.length;
             document.getElementById("markCount2").innerHTML = " " + markerArr2.length;
             document.getElementById("markCount3").innerHTML = " " + markerArr3.length;
             document.getElementById("markCount4").innerHTML = " " + markerArr4.length;
 
-
-            function sortAsDate(a, b) {
-                if (a.createddate < b.createddate)
-                    return 1;
-                if (a.createddate > b.createddate)
-                    return -1;
-                return 0;
-            }
 
             markerArr1.sort(sortAsDate);
             markerArr2.sort(sortAsDate);
@@ -101,72 +94,83 @@ function initMap() {
             createListOfMarkers(markerArr2, "ul2");
             createListOfMarkers(markerArr3, "ul3");
             createListOfMarkers(markerArr4, "ul4");
-
-            function createListOfMarkers(marker, ulTag) {
-                var ul = document.getElementById(ulTag);
-
-                marker.forEach(function (entry) {
-                    var li = document.createElement("li");
-                    ul.appendChild(li);
-                    //var title = marker.getTitle();
-                    li.innerHTML = entry.date + " " + entry.title;
-
-                    //Trigger a click event to marker when the list item is clicked.
-                    google.maps.event.addDomListener(li, "click", function () {
-                        entry.setAnimation(google.maps.Animation.BOUNCE);
-                        setTimeout(function () { entry.setAnimation(null); }, 750); // marker bounce one time
-                        google.maps.event.trigger(entry, "click");
-                    });
-                });
-            }
-
-            function doDateReadable(date) {
-                var months = [
-                    "Jan", "Feb", "Mar", "Apr", "Mar", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
-                ];
-
-                //Remove unwanted strings
-                date = date.replace("/Date(", "");
-                date = date.replace(")/", "");
-
-                //convert it into an integer and format it to an date
-                date = parseInt(date);
-                date = new Date(date);
-                hour = date.getHours();
-                hour = ("0" + hour).slice(-2);
-                minute = date.getHours();
-                minute = ("0" + minute).slice(-2);
-                date = date.getFullYear() + "-" + months[date.getMonth()] + "-" + date.getDate()
-                    + " " + hour + ":" + minute;
-
-                return date;
-            }
-
-            // Toggle markers when click
-            function addOnclick(index) {
-                document.getElementById("btn" + index).addEventListener("click", function () {
-                    $("#ul" + index).toggle();
-
-                    if (index == 1) var arr = markerArr1;
-                    if (index == 2) var arr = markerArr2;
-                    if (index == 3) var arr = markerArr3;
-                    if (index == 4) var arr = markerArr4;
-
-                    for (var i = 0; i < arr.length; i++) {
-                        if (arr[i].getMap() === null) {
-                            arr[i].setMap(map);
-                        } else {
-                            arr[i].setMap(null);
-                        }
-                    }
-                });
-            }
-
-            for (var i = 1; i < 5; i++) addOnclick(i);
-
         }
 
     });
+
+
+    function sortAsDate(a, b) {
+        if (a.createddate < b.createddate)
+            return 1;
+        if (a.createddate > b.createddate)
+            return -1;
+        return 0;
+    }
+
+    function createListOfMarkers(marker, ulTag) {
+        var ul = document.getElementById(ulTag);
+
+        marker.forEach(function (entry) {
+            var li = document.createElement("li");
+            ul.appendChild(li);
+            //var title = marker.getTitle();
+            li.innerHTML = entry.date + " " + entry.title;
+
+            //Trigger a click event to marker when the list item is clicked.
+            google.maps.event.addDomListener(li, "click", function () {
+                entry.setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(function () {
+                    entry.setAnimation(null);
+                }, 750); // marker bounce one time
+                google.maps.event.trigger(entry, "click");
+            });
+        });
+    }
+
+    function doDateReadable(date) {
+        var months = [
+            "Jan", "Feb", "Mar", "Apr", "Mar", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
+        ];
+
+        //Remove unwanted strings
+        date = date.replace("/Date(", "");
+        date = date.replace(")/", "");
+
+        //convert it into an integer and format it to an date
+        date = parseInt(date);
+        date = new Date(date);
+        hour = date.getHours();
+        hour = ("0" + hour).slice(-2);
+        minute = date.getHours();
+        minute = ("0" + minute).slice(-2);
+        date = date.getFullYear() + "-" + months[date.getMonth()] + "-" + date.getDate()
+            + " " + hour + ":" + minute;
+
+        return date;
+    }
+
+    // Toggle markers when click
+    function addOnclick(index) {
+        document.getElementById("btn" + index).addEventListener("click", function () {
+            $("#ul" + index).toggle();
+
+            if (index == 1) var arr = markerArr1;
+            if (index == 2) var arr = markerArr2;
+            if (index == 3) var arr = markerArr3;
+            if (index == 4) var arr = markerArr4;
+
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].getMap() === null) {
+                    arr[i].setMap(map);
+                } else {
+                    arr[i].setMap(null);
+                }
+            }
+        });
+    }
+
+    for (var i = 1; i < 5; i++) addOnclick(i);
+
 
 }
 

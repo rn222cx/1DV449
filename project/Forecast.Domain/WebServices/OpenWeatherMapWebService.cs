@@ -14,7 +14,7 @@ namespace Forecast.Domain.WebServices
 {
     public class OpenWeatherMapWebService
     {
-        public IEnumerable<Forecast> getPlace(string place)
+        public IEnumerable<Weather> getPlace(string place)
         {
             string rawJson;
 
@@ -26,7 +26,7 @@ namespace Forecast.Domain.WebServices
 
             //string appid = "0b7b7c10d558c6a0cf7ae9b427ad071b";
 
-            var requestUriString = String.Format("http://api.openweathermap.org/data/2.5/weather?q=Cleveland&APPID=0b7b7c10d558c6a0cf7ae9b427ad071b&mode=json");
+            var requestUriString = String.Format("http://api.openweathermap.org/data/2.5/forecast?{0}&appid=0b7b7c10d558c6a0cf7ae9b427ad071b", place);
             var request = (HttpWebRequest)WebRequest.Create(requestUriString);
 
             using (var response = request.GetResponse())
@@ -41,7 +41,7 @@ namespace Forecast.Domain.WebServices
             str.Append("]");
             string result = str.ToString();
 
-            return JArray.Parse(result).Select(f => new Forecast(f)).ToList();
+            return JArray.Parse(result).Select(f => new Weather(f)).ToList();
 
             // Example without stringbulider.
 

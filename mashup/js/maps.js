@@ -23,6 +23,7 @@ function initMap() {
 
                 var obj = data.messages[key];
 
+                var priority = obj.priority;
                 var category = obj.category;
                 var readableDate = doDateReadable(obj.createddate);
 
@@ -39,11 +40,31 @@ function initMap() {
                     category = "Övrigt";
                 }
 
+                var color;
+
+                if (priority == 1) {
+                    color = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+                }
+                if (priority == 2) {
+                    color = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
+                }
+                if (priority == 3) {
+                    color = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+                }
+                if (priority == 4) {
+                    color = 'http://maps.google.com/mapfiles/ms/icons/pink-dot.png';
+                }
+                if (priority == 5) {
+                    color = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+                }
+
+
                 myLatlng = new google.maps.LatLng(obj.latitude, obj.longitude);
 
                 allMarkers = new google.maps.Marker({
                     position: myLatlng,
                     map: map,
+                    icon: color,
                     date: readableDate,
                     createddate: obj.createddate,
                     animation: google.maps.Animation.DROP,

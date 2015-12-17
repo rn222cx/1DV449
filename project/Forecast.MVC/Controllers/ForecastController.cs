@@ -10,6 +10,7 @@ namespace Forecast.MVC.Controllers
 {
     public class ForecastController : Controller
     {
+        // Extra commit
         // GET:
         public  ActionResult Index()
         {

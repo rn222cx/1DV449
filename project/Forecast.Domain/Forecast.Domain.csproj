@@ -49,6 +49,10 @@
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Weather.cs" />
+    <Compile Include="WebServices\GeoNamesWebService.cs" />
+    <Compile Include="WebServices\IGeoNamesWebService.cs" />
+    <Compile Include="WebServices\IOpenWeatherMapWebService.cs" />
+    <Compile Include="WebServices\OpenWeatherMapWebService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -56,9 +60,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WebServices\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

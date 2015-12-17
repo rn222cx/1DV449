@@ -21,10 +21,20 @@
 </div>
 
 <div>
-    @if(Model != null && Model.HasCity)
+    @if (Model != null && Model.HasCity)
     {
+        foreach (var location in Model.Locations)
+        {
+            <p>
+                @location.County
+            </p>
+            <p>
+                @location.Latitude @location.Longitude
+                @Html.ActionLink(@location.City, "Weather", new { lat = @location.Latitude, lon = @location.Longitude })
+            </p>
 
-            @Html.DisplayFor(m => m.Weathers)
+        }
+            @*@Html.DisplayFor(m => m.Weathers)*@
     }
 
     @*@foreach (var forecast in Model)

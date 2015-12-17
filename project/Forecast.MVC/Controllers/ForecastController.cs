@@ -10,7 +10,7 @@ namespace Forecast.MVC.Controllers
 {
     public class ForecastController : Controller
     {
-        // GET: Forecast
+        // GET:
         public  ActionResult Index()
         {
             return View();
@@ -24,8 +24,8 @@ namespace Forecast.MVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var webservice = new OpenWeatherMapWebService();
-                    model.Weathers = webservice.getPlace(model.CityName); //lat=56.87767&lon=14.80906
+                    var webservice = new GeoNamesWebService();
+                    model.Locations = webservice.GetLocation(model.CityName); //lat=56.87767&lon=14.80906
                 }
                 
             }
@@ -36,5 +36,11 @@ namespace Forecast.MVC.Controllers
   
             return View(model);
         }
+        // GET:
+        public ActionResult Weather()
+        {
+            return View();
+        }
+
     }
 }

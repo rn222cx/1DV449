@@ -16,7 +16,7 @@ namespace Forecast.MVC.ViewModels
 
         public bool HasCity
         {
-            get { return Weathers != null && Weathers.Any(); }
+            get { return Locations != null && Locations.Any(); }
         }
 
         public string Name

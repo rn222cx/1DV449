@@ -169,6 +169,7 @@
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Forecast\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Weather.cshtml" />
+    <Content Include="Views\Forecast\Weather.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Weather_Fonts\" />

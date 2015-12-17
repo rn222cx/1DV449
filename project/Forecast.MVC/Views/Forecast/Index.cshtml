@@ -21,21 +21,25 @@
 </div>
 
 <div>
-    @if(Model != null && Model.HasCity)
+    @*@if(Model != null && Model.HasCity)
     {
 
             @Html.DisplayFor(m => m.Weathers)
-    }
-
-    @*@foreach (var forecast in Model)
-    {
-        <h3>
-            @forecast.City
-        </h3>
-        <h3>
-            @forecast.WheaterType
-            <img src="~/Weather_Fonts/@(forecast.WheaterType).png" alt="Weather icon" />
-        </h3>
-
     }*@
+
+    @if(Model != null)
+    { 
+
+        foreach (var location in Model.Locations)
+        {
+            <p>
+                @location.County
+            </p>
+            <p>
+                @location.Latitude @location.Longitude
+                @Html.ActionLink(@location.City, "Weather", new { lat = @location.Latitude, lon = @location.Longitude })
+            </p>
+
+        }
+    }
 </div>

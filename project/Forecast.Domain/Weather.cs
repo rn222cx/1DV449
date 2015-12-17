@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace Forecast.Domain
 {
-    public class Weather
+    public partial class Weather
     {
+        public Weather()
+        {
+            // Empty!        
+        }
         public string City { get; set; }
         public string WheaterType { get; set; }
 

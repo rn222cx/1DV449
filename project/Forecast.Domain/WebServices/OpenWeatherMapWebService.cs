@@ -12,21 +12,15 @@ using System.Web.Script.Serialization;
 
 namespace Forecast.Domain.WebServices
 {
-    public class OpenWeatherMapWebService
+    public class OpenWeatherMapWebService : IOpenWeatherMapWebService
     {
-        public IEnumerable<Weather> getPlace(string place)
+        public IEnumerable<Weather> GetForecast(Location location)
         {
             string rawJson;
 
-            //var path = HttpContext.Current.Server.MapPath("~/App_Data/owm.json");
-            //using (StreamReader reader = new StreamReader(path))
-            //{
-            //    rawJson = reader.ReadToEnd();
-            //}
-
             //string appid = "0b7b7c10d558c6a0cf7ae9b427ad071b";
 
-            var requestUriString = String.Format("http://api.openweathermap.org/data/2.5/forecast?{0}&appid=0b7b7c10d558c6a0cf7ae9b427ad071b", place);
+            var requestUriString = String.Format("http://api.openweathermap.org/data/2.5/forecast?lat={0}&lon={1}&appid=0b7b7c10d558c6a0cf7ae9b427ad071b&units=metric", location.Latitude, location.Longitude);
             var request = (HttpWebRequest)WebRequest.Create(requestUriString);
 
             using (var response = request.GetResponse())

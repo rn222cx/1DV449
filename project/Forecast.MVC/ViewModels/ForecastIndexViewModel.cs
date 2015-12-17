@@ -11,6 +11,9 @@ namespace Forecast.MVC.ViewModels
         public string CityName { get; set; }
         public IEnumerable<Weather> Weathers { get; set; }
 
+        public Location location { get; set; }
+        public IEnumerable<Location> Locations { get; set; }
+
         public bool HasCity
         {
             get { return Weathers != null && Weathers.Any(); }

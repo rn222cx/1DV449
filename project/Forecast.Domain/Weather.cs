@@ -12,10 +12,10 @@ namespace Forecast.Domain
         public string City { get; set; }
         public string WheaterType { get; set; }
 
-        public Weather(JToken f)
+        public Weather(JToken token)
         {
-            City = f["city"]["id"].ToString();
-            WheaterType = f["list"][0]["weather"][0]["icon"].ToString();
+            City = token["city"]["id"].ToString();
+            WheaterType = token["list"][0]["weather"][0]["icon"].ToString();
         }
     }
 }

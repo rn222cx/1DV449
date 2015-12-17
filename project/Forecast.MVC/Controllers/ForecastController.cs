@@ -24,10 +24,8 @@ namespace Forecast.MVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //var webservice = new OpenWeatherMapWebService();
-                    //model.Weathers = webservice.GetForecast(model.CityName); //lat=56.87767&lon=14.80906
-                    var webservice = new GeoNamesWebService();
-                    model.Locations = webservice.GetLocation(model.CityName); //lat=56.87767&lon=14.80906
+                    var webservice = new OpenWeatherMapWebService();
+                    model.Weathers = webservice.getPlace(model.CityName); //lat=56.87767&lon=14.80906
                 }
                 
             }
@@ -36,15 +34,6 @@ namespace Forecast.MVC.Controllers
                 ModelState.AddModelError(String.Empty, ex.Message);
             }
   
-            return View(model);
-        }
-
-        // GET: Forecast
-        public ActionResult Weather(string lat, string lon, ForecastIndexViewModel model)
-        {
-            var webservice = new OpenWeatherMapWebService();
-            model.Weathers = webservice.GetForecast(model.location);
-
             return View(model);
         }
     }

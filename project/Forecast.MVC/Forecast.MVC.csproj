@@ -135,8 +135,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\1.png" />
-    <Content Include="fonts\5-.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -168,12 +166,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Forecast\Index.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Weather.cshtml" />
-    <Content Include="Views\Forecast\Weather.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Weather_Fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

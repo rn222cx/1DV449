@@ -1,0 +1,14 @@
+C:\Users\royal\Documents\Visual Studio 2015\Projects\rn222cx-2-1-individuellt-arbete\WeatherForecast\Forecast.Domain\bin\Debug\Forecast.Domain.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\rn222cx-2-1-individuellt-arbete\WeatherForecast\Forecast.Domain\bin\Debug\Forecast.Domain.pdb
+C:\Users\royal\Documents\Visual Studio 2015\Projects\rn222cx-2-1-individuellt-arbete\WeatherForecast\Forecast.Domain\obj\Debug\Forecast.Domain.csprojResolveAssemblyReference.cache
+C:\Users\royal\Documents\Visual Studio 2015\Projects\rn222cx-2-1-individuellt-arbete\WeatherForecast\Forecast.Domain\obj\Debug\Forecast.Domain.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\rn222cx-2-1-individuellt-arbete\WeatherForecast\Forecast.Domain\obj\Debug\Forecast.Domain.pdb
+C:\Users\royal\Documents\Visual Studio 2015\Projects\rn222cx-2-1-individuellt-arbete\WeatherForecast\Forecast.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\rn222cx-2-1-individuellt-arbete\WeatherForecast\Forecast.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\bin\Debug\Forecast.Domain.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\bin\Debug\Forecast.Domain.pdb
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\obj\Debug\Forecast.Domain.csprojResolveAssemblyReference.cache
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\obj\Debug\Forecast.Domain.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\obj\Debug\Forecast.Domain.pdb

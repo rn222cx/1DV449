@@ -10,9 +10,8 @@ namespace Forecast.MVC.Controllers
 {
     public class ForecastController : Controller
     {
-        // Extra commit
         // GET:
-        public  ActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }
@@ -28,13 +27,13 @@ namespace Forecast.MVC.Controllers
                     var webservice = new GeoNamesWebService();
                     model.Locations = webservice.GetLocation(model.CityName); //lat=56.87767&lon=14.80906
                 }
-                
+
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError(String.Empty, ex.Message);
             }
-  
+
             return View(model);
         }
         // GET:
@@ -42,6 +41,5 @@ namespace Forecast.MVC.Controllers
         {
             return View();
         }
-
     }
 }

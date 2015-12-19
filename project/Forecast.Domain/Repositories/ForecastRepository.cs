@@ -12,10 +12,14 @@ namespace Forecast.Domain.Repositories
     {
         private readonly WP14_rn222cx_WeatherEntities _context = new WP14_rn222cx_WeatherEntities(); 
 
-        public override void AddLocation(Location location)
+        public override void AddLocation(IEnumerable<Location> location)
         {
-            _context.Locations.Add(location);
+            foreach (Location item in location)
+            {
+                _context.Locations.Add(item); 
+            }
         }
+
 
         public override void AddWeather(Weather weather)
         {
@@ -32,6 +36,20 @@ namespace Forecast.Domain.Repositories
         {
             var weather = _context.Weathers.Find(id);
             _context.Weathers.Remove(weather);
+        }
+
+        public override IEnumerable<Location> GetCity(string cityName)
+        {
+            var findCity = from city in _context.Locations.ToList()
+                           where city.City.ToLower().Contains(cityName.ToLower())
+                           select city;
+
+            return findCity;
+        }
+
+        public override void Save()
+        {
+            _context.SaveChanges();
         }
 
         public override void UpdateLocation(Location location)

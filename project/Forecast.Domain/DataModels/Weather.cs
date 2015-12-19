@@ -22,6 +22,7 @@ namespace Forecast.Domain
         public Nullable<double> Rain { get; set; }
         public Nullable<double> Temp { get; set; }
         public string Description { get; set; }
+        public Nullable<System.DateTime> NextUpdate { get; set; }
     
         public virtual Location Location { get; set; }
     }

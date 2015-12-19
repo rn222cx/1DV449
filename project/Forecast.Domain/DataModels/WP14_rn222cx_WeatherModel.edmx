@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WP14_rn222cx_WeatherModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WP14_rn222cx_WeatherModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Location">
           <Key>
             <PropertyRef Name="LocationID" />
@@ -39,6 +39,7 @@
           <Property Name="Rain" Type="float" />
           <Property Name="Temp" Type="float" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="NextUpdate" Type="datetime2" Precision="0" />
         </EntityType>
         <Association Name="FK_Weather_Location">
           <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
@@ -61,8 +62,7 @@
             <End Role="Weather" EntitySet="Weather" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WP14_rn222cx_WeatherModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -102,6 +102,7 @@
           <Property Name="Temp" Type="Double" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Location" Relationship="Self.FK_Weather_Location" FromRole="Weather" ToRole="Location" />
+          <Property Name="NextUpdate" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK_Weather_Location">
           <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
@@ -157,6 +158,7 @@
           <EntitySetMapping Name="Weathers">
             <EntityTypeMapping TypeName="WP14_rn222cx_WeatherModel.Weather">
               <MappingFragment StoreEntitySet="Weather">
+                <ScalarProperty Name="NextUpdate" ColumnName="NextUpdate" />
                 <ScalarProperty Name="ForeastID" ColumnName="ForeastID" />
                 <ScalarProperty Name="LocationID" ColumnName="LocationID" />
                 <ScalarProperty Name="Period" ColumnName="Period" />
@@ -182,8 +184,8 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

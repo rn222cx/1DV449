@@ -30,12 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -46,8 +57,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModels\Location.cs">
+      <DependentUpon>WP14_rn222cx_WeatherModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\sysdiagram.cs">
+      <DependentUpon>WP14_rn222cx_WeatherModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Weather.cs">
+      <DependentUpon>WP14_rn222cx_WeatherModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\WP14_rn222cx_WeatherModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WP14_rn222cx_WeatherModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\WP14_rn222cx_WeatherModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WP14_rn222cx_WeatherModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\WP14_rn222cx_WeatherModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WP14_rn222cx_WeatherModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ForecastService.cs" />
+    <Compile Include="ForecastServiceBase.cs" />
+    <Compile Include="IForecastService.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ForecastRepository.cs" />
+    <Compile Include="Repositories\ForecastRepositoryBase.cs" />
+    <Compile Include="Repositories\IForecastRepository.cs" />
     <Compile Include="Weather.cs" />
     <Compile Include="WebServices\GeoNamesWebService.cs" />
     <Compile Include="WebServices\IGeoNamesWebService.cs" />
@@ -55,11 +96,36 @@
     <Compile Include="WebServices\OpenWeatherMapWebService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="DataModels\WP14_rn222cx_WeatherModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WP14_rn222cx_WeatherModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="DataModels\WP14_rn222cx_WeatherModel.edmx.diagram">
+      <DependentUpon>WP14_rn222cx_WeatherModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModels\WP14_rn222cx_WeatherModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WP14_rn222cx_WeatherModel.edmx</DependentUpon>
+      <LastGenOutput>WP14_rn222cx_WeatherModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModels\WP14_rn222cx_WeatherModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WP14_rn222cx_WeatherModel.edmx</DependentUpon>
+      <LastGenOutput>WP14_rn222cx_WeatherModel.cs</LastGenOutput>
+      <CustomToolNamespace>Forecast.Domain</CustomToolNamespace>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

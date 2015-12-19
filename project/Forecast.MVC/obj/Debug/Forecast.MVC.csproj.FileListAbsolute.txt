@@ -84,3 +84,7 @@ C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.MVC
 C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.MVC\obj\Debug\Forecast.MVC.csprojResolveAssemblyReference.cache
 C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.MVC\obj\Debug\Forecast.MVC.dll
 C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.MVC\obj\Debug\Forecast.MVC.pdb
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.MVC\bin\EntityFramework.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.MVC\bin\EntityFramework.xml
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.MVC\bin\EntityFramework.SqlServer.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.MVC\bin\EntityFramework.SqlServer.xml

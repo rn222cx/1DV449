@@ -13,12 +13,14 @@ namespace Forecast.Domain.Repositories
 
 
         public abstract void AddLocation(IEnumerable<Location> location);
+        public abstract void AddWeather(IEnumerable<Weather> weather);
+        public abstract void DeleteWeather(IEnumerable<Weather> weather);
 
-        public abstract void AddWeather(Weather weather);
+        //public abstract void AddWeather(Weather weather);
 
         public abstract void DeleteLocation(int id);
 
-        public abstract void DeleteWeather(int id);
+       // public abstract void DeleteWeather(int id);
 
         public IEnumerable<Location> GetLocation()
         {
@@ -48,6 +50,8 @@ namespace Forecast.Domain.Repositories
         public abstract void UpdateLocation(Location location);
 
         public abstract void UpdateWeather(Weather weather);
+        public abstract IEnumerable<Weather> FindWeather(int id);
+
         public abstract void Save();
 
         #region IDisposable Support
@@ -83,9 +87,6 @@ namespace Forecast.Domain.Repositories
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
-
-
-
 
         #endregion
     }

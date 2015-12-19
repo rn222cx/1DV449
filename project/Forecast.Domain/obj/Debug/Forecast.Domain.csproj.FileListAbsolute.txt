@@ -12,3 +12,8 @@ C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Dom
 C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\obj\Debug\Forecast.Domain.csprojResolveAssemblyReference.cache
 C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\obj\Debug\Forecast.Domain.dll
 C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\obj\Debug\Forecast.Domain.pdb
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\bin\Debug\Forecast.Domain.dll.config
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\bin\Debug\EntityFramework.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\bin\Debug\EntityFramework.xml
+C:\Users\royal\Documents\Visual Studio 2015\Projects\1DV449\project\Forecast.Domain\bin\Debug\EntityFramework.SqlServer.xml

@@ -20,11 +20,18 @@ namespace Forecast.Domain.Repositories
             }
         }
 
-
-        public override void AddWeather(Weather weather)
+        public override void AddWeather(IEnumerable<Weather> weather)
         {
-            _context.Weathers.Add(weather);
+            foreach (Weather item in weather)
+            {
+                _context.Weathers.Add(item);
+            }
         }
+
+        //public override void AddWeather(Weather weather)
+        //{
+        //    _context.Weathers.Add(weather);
+        //}
 
         public override void DeleteLocation(int id)
         {
@@ -32,10 +39,32 @@ namespace Forecast.Domain.Repositories
             _context.Locations.Remove(location);
         }
 
-        public override void DeleteWeather(int id)
+        public override void DeleteWeather(IEnumerable<Weather> weather)
         {
-            var weather = _context.Weathers.Find(id);
-            _context.Weathers.Remove(weather);
+            foreach (Weather item in weather)
+            {
+                //if (_context.Entry(item).State == EntityState.Detached)
+                //{
+                //    _context.Weathers.Attach(item);
+                //}
+
+                _context.Weathers.Remove(item);
+            }
+        }
+
+        //public override void DeleteWeather(int id)
+        //{
+        //    var weather = _context.Weathers.Find(id);
+        //    _context.Weathers.Remove(weather);
+        //}
+
+        public override IEnumerable<Weather> FindWeather(int id)
+        {
+            var findweather = from forecast in _context.Weathers.ToList()
+                               where forecast.ForeastID == id
+                               select forecast;
+
+            return findweather;
         }
 
         public override IEnumerable<Location> GetCity(string cityName)

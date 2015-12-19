@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="LocationID" />
           </Key>
-          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NextUpdate" Type="datetime2" Precision="0" />
           <Property Name="Latitude" Type="float" />
           <Property Name="Longitude" Type="float" />

@@ -1,4 +1,5 @@
-﻿using Forecast.Domain.WebServices;
+﻿using Forecast.Domain;
+using Forecast.Domain.WebServices;
 using Forecast.MVC.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,18 @@ namespace Forecast.MVC.Controllers
 {
     public class ForecastController : Controller
     {
+        private Forecast.Domain.IForecastService _service;
+
+        public ForecastController()
+            : this(new ForecastService())
+        {
+            // Empty!
+        }
+
+        public ForecastController(Forecast.Domain.IForecastService service)
+        {
+            _service = service;
+        }
         // GET:
         public ActionResult Index()
         {
@@ -24,9 +37,12 @@ namespace Forecast.MVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var webservice = new GeoNamesWebService();
-                    model.Locations = webservice.GetLocation(model.CityName); //lat=56.87767&lon=14.80906
+                    //var webservice = new GeoNamesWebService();
+                    //model.Locations = webservice.GetLocation(model.CityName); //lat=56.87767&lon=14.80906
+                    model.Locations = _service.Getlocation(model.CityName);
                 }
+
+                return View(model);
 
             }
             catch (Exception ex)
@@ -40,6 +56,12 @@ namespace Forecast.MVC.Controllers
         public ActionResult Weather()
         {
             return View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _service.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

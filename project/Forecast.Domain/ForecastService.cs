@@ -30,7 +30,7 @@ namespace Forecast.Domain
         {
             var city = _repository.GetCity(cityName);
 
-            if(city == null)
+            if (city.Count() == 0)
             {
                 city = _geoWebservice.GetLocation(cityName);
 
@@ -57,12 +57,12 @@ namespace Forecast.Domain
                 {
                     if (item.NextUpdate < DateTime.Now)
                     {
-                        _repository.DeleteForecast(weather);
+                        _repository.DeleteWeather(weather);
                         _repository.Save();
 
-                        weather = _yrWebservice.GetForecast(city);
+                        weather = _owmWebservice.GetForecast(location);
 
-                        _repository.AddForecast(weather);
+                        _repository.AddWeather(weather);
                         _repository.Save();
                         break;
                     }
@@ -70,6 +70,12 @@ namespace Forecast.Domain
             }
 
             return weather;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _repository.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

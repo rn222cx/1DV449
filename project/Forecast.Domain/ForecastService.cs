@@ -72,6 +72,11 @@ namespace Forecast.Domain
             return weather;
         }
 
+        public override Location GetLocationById(int id)
+        {
+            return _repository.GetLocationById(id);
+        }
+
         protected override void Dispose(bool disposing)
         {
             _repository.Dispose();

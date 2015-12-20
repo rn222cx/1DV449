@@ -25,18 +25,19 @@
   </EntityType>
   <EntityType Name="Weather">
     <Key>
-      <PropertyRef Name="ForeastID" />
+      <PropertyRef Name="WeatherID" />
     </Key>
-    <Property Name="ForeastID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LocationID" Type="Int32" />
     <Property Name="Period" Type="DateTime" Precision="0" />
-    <Property Name="Wind" Type="Double" />
-    <Property Name="Degrees" Type="Double" />
-    <Property Name="Rain" Type="Double" />
-    <Property Name="Temp" Type="Double" />
+    <Property Name="Wind" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Degrees" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Temp" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Location" Relationship="Self.FK_Weather_Location" FromRole="Weather" ToRole="Location" />
     <Property Name="NextUpdate" Type="DateTime" Precision="0" />
+    <Property Name="WeatherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rainfall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_Weather_Location">
     <End Role="Location" Type="Self.Location" Multiplicity="0..1" />

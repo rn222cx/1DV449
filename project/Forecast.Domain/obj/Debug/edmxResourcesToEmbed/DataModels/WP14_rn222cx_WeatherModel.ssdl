@@ -24,20 +24,23 @@
   </EntityType>
   <EntityType Name="Weather">
     <Key>
-      <PropertyRef Name="ForeastID" />
+      <PropertyRef Name="WeatherID" />
     </Key>
-    <Property Name="ForeastID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WeatherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LocationID" Type="int" />
     <Property Name="Period" Type="datetime2" Precision="0" />
-    <Property Name="Wind" Type="float" />
-    <Property Name="Degrees" Type="float" />
-    <Property Name="Rain" Type="float" />
-    <Property Name="Temp" Type="float" />
+    <Property Name="Wind" Type="varchar" MaxLength="50" />
+    <Property Name="Degrees" Type="varchar" MaxLength="50" />
     <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Temp" Type="varchar" MaxLength="50" />
     <Property Name="NextUpdate" Type="datetime2" Precision="0" />
+    <Property Name="Rainfall" Type="varchar" MaxLength="50" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Weather_Location">
-    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Weather" Type="Self.Weather" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Location">
@@ -48,6 +51,36 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="WP14_rn222cx_WeatherModelStoreContainer">
     <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />

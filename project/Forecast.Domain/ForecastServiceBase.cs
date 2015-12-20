@@ -10,6 +10,7 @@ namespace Forecast.Domain
     {
         public abstract IEnumerable<Location> Getlocation(string cityName);
         public abstract IEnumerable<Weather> RefreshWeather(Location location);
+        public abstract Location GetLocationById(int id);
 
         //public abstract Location Getlocation(string cityName);
         //public abstract void RefreshWeather(Location location);
@@ -46,6 +47,8 @@ namespace Forecast.Domain
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
+
+        
         #endregion
     }
 }

@@ -19,6 +19,7 @@ namespace Forecast.Domain.Repositories
         void DeleteWeather(IEnumerable<Weather> weather);
 
         IEnumerable<Location> GetLocation();
+        Location GetLocationById(int id);
         Location GetLocation(int id);
         IEnumerable<Location> GetCity(string cityName);
         void AddLocation(IEnumerable<Location> location);

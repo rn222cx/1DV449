@@ -28,6 +28,7 @@ namespace Forecast.Domain
             Latitude = token.Value<double>("lat");
             Longitude = token.Value<double>("lng");
             //Longitude = token["lng"].ToString();
+            NextUpdate = DateTime.Now.AddMinutes(10);
         }
     }
 }

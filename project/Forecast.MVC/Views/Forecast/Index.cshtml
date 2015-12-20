@@ -30,7 +30,7 @@
             </p>
             <p>
                 @location.Latitude @location.Longitude
-                @Html.ActionLink(@location.City, "Weather", new { lat = @location.Latitude, lon = @location.Longitude })
+                @Html.ActionLink(@location.City, "Weather", new { id= @location.LocationID, lat = @location.Latitude, lon = @location.Longitude })
             </p>
 
         }

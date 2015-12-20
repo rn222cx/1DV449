@@ -44,7 +44,7 @@ namespace Forecast.Domain.Repositories
 
         public Weather GetWeather(int id)
         {
-            return QueryWeathers().SingleOrDefault(w => w.ForeastID == id);
+            return QueryWeathers().SingleOrDefault(w => w.WeatherID == id);
         }
 
         public abstract void UpdateLocation(Location location);
@@ -87,6 +87,9 @@ namespace Forecast.Domain.Repositories
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
+
+        public abstract Location GetLocationById(int id);
+
 
         #endregion
     }

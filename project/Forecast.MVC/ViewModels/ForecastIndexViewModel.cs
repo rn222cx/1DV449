@@ -23,7 +23,7 @@ namespace Forecast.MVC.ViewModels
         {
             get
             {
-                return HasCity ? Weathers.First().City : "[Unknown]";
+                return HasCity ? Weathers.First().Rainfall : "[Unknown]";
             }
         }
 

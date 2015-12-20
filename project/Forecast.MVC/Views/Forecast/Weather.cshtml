@@ -1,0 +1,36 @@
+﻿@model Forecast.MVC.ViewModels.ForecastIndexViewModel
+
+
+@*@Html.DisplayFor(m => m.Weathers)*@
+    
+
+@foreach (var forecast in Model.Weathers)
+    {
+        <h3>
+            @forecast.Temp
+        </h3>
+        <h3>
+            @forecast.Symbol
+            <img src="~/Content/WeatherSymbols/@(forecast.Symbol).png" alt="Weather icon" />
+        </h3>
+
+    }
+
+@*@if (Model != null && Model.HasForcast)
+{
+    foreach (var item in @Model.Forecasts)
+    {
+        var day = Model.WeekDay(item.NextUpdate, item.Period);
+
+        if (day != null)
+        {
+            <h3>@day</h3>
+        }
+
+        <p>
+            @Model.TimePeriod(item.LastUpdate, item.NextUpdate)
+        <span class="weatherSymbol"><img src="http://api.yr.no/weatherapi/weathericon/1.1/?symbol=@item.Symbol;content_type=image/png" /></span>
+        <span class="temp">@item.Temperature &deg;C</span>
+    </p>
+    }
+}*@

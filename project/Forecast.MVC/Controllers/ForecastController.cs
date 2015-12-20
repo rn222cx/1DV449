@@ -11,7 +11,7 @@ namespace Forecast.MVC.Controllers
 {
     public class ForecastController : Controller
     {
-        private Forecast.Domain.IForecastService _service;
+        private IForecastService _service;
 
         public ForecastController()
             : this(new ForecastService())
@@ -19,7 +19,7 @@ namespace Forecast.MVC.Controllers
             // Empty!
         }
 
-        public ForecastController(Forecast.Domain.IForecastService service)
+        public ForecastController(IForecastService service)
         {
             _service = service;
         }
@@ -53,9 +53,15 @@ namespace Forecast.MVC.Controllers
             return View(model);
         }
         // GET:
-        public ActionResult Weather()
+        public ActionResult Weather(int id, ForecastIndexViewModel model)
         {
-            return View();
+            model.location = _service.GetLocationById(id);
+            model.Weathers = _service.RefreshWeather(model.location);
+
+
+
+
+            return View(model);
         }
 
         protected override void Dispose(bool disposing)

@@ -29,20 +29,23 @@
         </EntityType>
         <EntityType Name="Weather">
           <Key>
-            <PropertyRef Name="ForeastID" />
+            <PropertyRef Name="WeatherID" />
           </Key>
-          <Property Name="ForeastID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeatherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LocationID" Type="int" />
           <Property Name="Period" Type="datetime2" Precision="0" />
-          <Property Name="Wind" Type="float" />
-          <Property Name="Degrees" Type="float" />
-          <Property Name="Rain" Type="float" />
-          <Property Name="Temp" Type="float" />
+          <Property Name="Wind" Type="varchar" MaxLength="50" />
+          <Property Name="Degrees" Type="varchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Temp" Type="varchar" MaxLength="50" />
           <Property Name="NextUpdate" Type="datetime2" Precision="0" />
+          <Property Name="Rainfall" Type="varchar" MaxLength="50" />
+          <Property Name="Symbol" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Weather_Location">
-          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Weather" Type="Self.Weather" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Location">
@@ -53,6 +56,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="WP14_rn222cx_WeatherModelStoreContainer">
           <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -91,18 +124,19 @@
         </EntityType>
         <EntityType Name="Weather">
           <Key>
-            <PropertyRef Name="ForeastID" />
+            <PropertyRef Name="WeatherID" />
           </Key>
-          <Property Name="ForeastID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LocationID" Type="Int32" />
           <Property Name="Period" Type="DateTime" Precision="0" />
-          <Property Name="Wind" Type="Double" />
-          <Property Name="Degrees" Type="Double" />
-          <Property Name="Rain" Type="Double" />
-          <Property Name="Temp" Type="Double" />
+          <Property Name="Wind" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Degrees" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Temp" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Location" Relationship="Self.FK_Weather_Location" FromRole="Weather" ToRole="Location" />
           <Property Name="NextUpdate" Type="DateTime" Precision="0" />
+          <Property Name="WeatherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rainfall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Weather_Location">
           <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
@@ -158,14 +192,15 @@
           <EntitySetMapping Name="Weathers">
             <EntityTypeMapping TypeName="WP14_rn222cx_WeatherModel.Weather">
               <MappingFragment StoreEntitySet="Weather">
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Rainfall" ColumnName="Rainfall" />
+                <ScalarProperty Name="Temp" ColumnName="Temp" />
+                <ScalarProperty Name="WeatherID" ColumnName="WeatherID" />
                 <ScalarProperty Name="NextUpdate" ColumnName="NextUpdate" />
-                <ScalarProperty Name="ForeastID" ColumnName="ForeastID" />
                 <ScalarProperty Name="LocationID" ColumnName="LocationID" />
                 <ScalarProperty Name="Period" ColumnName="Period" />
                 <ScalarProperty Name="Wind" ColumnName="Wind" />
                 <ScalarProperty Name="Degrees" ColumnName="Degrees" />
-                <ScalarProperty Name="Rain" ColumnName="Rain" />
-                <ScalarProperty Name="Temp" ColumnName="Temp" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>

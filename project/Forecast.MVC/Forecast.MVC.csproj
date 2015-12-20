@@ -142,6 +142,24 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\WeatherSymbols\01d.png" />
+    <Content Include="Content\WeatherSymbols\01n.png" />
+    <Content Include="Content\WeatherSymbols\02d.png" />
+    <Content Include="Content\WeatherSymbols\02n.png" />
+    <Content Include="Content\WeatherSymbols\03d.png" />
+    <Content Include="Content\WeatherSymbols\03n.png" />
+    <Content Include="Content\WeatherSymbols\04d.png" />
+    <Content Include="Content\WeatherSymbols\04n.png" />
+    <Content Include="Content\WeatherSymbols\09d.png" />
+    <Content Include="Content\WeatherSymbols\09n.png" />
+    <Content Include="Content\WeatherSymbols\10d.png" />
+    <Content Include="Content\WeatherSymbols\10n.png" />
+    <Content Include="Content\WeatherSymbols\11d.png" />
+    <Content Include="Content\WeatherSymbols\11n.png" />
+    <Content Include="Content\WeatherSymbols\13d.png" />
+    <Content Include="Content\WeatherSymbols\13n.png" />
+    <Content Include="Content\WeatherSymbols\50d.png" />
+    <Content Include="Content\WeatherSymbols\50n.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -175,6 +193,7 @@
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Forecast\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Weather.cshtml" />
+    <Content Include="Views\Forecast\Weather.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

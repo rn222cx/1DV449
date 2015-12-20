@@ -32,26 +32,29 @@ namespace Forecast.Domain.WebServices
                 rawJson = reader.ReadToEnd();
             }
 
-            var str = new StringBuilder();
-            str.Append("[");
-            str.Append(rawJson);
-            str.Append("]");
-            string result = str.ToString();
+            //var str = new StringBuilder();
+            //str.Append("[");
+            //str.Append(rawJson);
+            //str.Append("]");
+            //string result = str.ToString();
 
-            return JArray.Parse(result).Select(f => new Weather(f)).ToList();
+
+            //return JArray.Parse(result).Select(f => new Weather(f)).ToList();
 
             // Example without stringbulider.
 
-            //JObject results = JObject.Parse(rawJson);
-            //var Forecasts = new List<Forecast>();
+            JObject results = JObject.Parse(rawJson);
+            var Forecasts = new List<Weather>();
 
-            //foreach(var result in results["weather"])
-            //{
-            //    string main = (string)result["main"];
-            //    Forecasts.Add(new Forecast(main));
-            //}
+            foreach (var result in results["list"])
+            {
+                string temp = (string)result["main"]["temp"];
+                string symbol = (string)result["weather"][0]["icon"];
 
-            //return Forecasts;
+                Forecasts.Add(new Weather(temp, symbol));
+            }
+
+            return Forecasts;
 
         }
     }

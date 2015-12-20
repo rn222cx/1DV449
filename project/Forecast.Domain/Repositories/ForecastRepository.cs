@@ -61,7 +61,7 @@ namespace Forecast.Domain.Repositories
         public override IEnumerable<Weather> FindWeather(int id)
         {
             var findweather = from forecast in _context.Weathers.ToList()
-                               where forecast.ForeastID == id
+                               where forecast.WeatherID == id
                                select forecast;
 
             return findweather;
@@ -100,5 +100,11 @@ namespace Forecast.Domain.Repositories
         {
             return _context.Weathers;
         }
+
+        public override Location GetLocationById(int id)
+        {
+            return _context.Locations.Find(id);
+        }
+
     }
 }

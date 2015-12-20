@@ -10,6 +10,8 @@ namespace Forecast.Domain
     {
         IEnumerable<Location> Getlocation(string cityName);
         IEnumerable<Weather> RefreshWeather(Location location);
+
+        Location GetLocationById(int id);
         //Location Getlocation(string cityName);
         //void RefreshWeather(Location location);
     }

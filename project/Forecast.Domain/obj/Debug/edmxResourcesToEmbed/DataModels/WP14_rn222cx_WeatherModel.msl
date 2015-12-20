@@ -28,14 +28,15 @@
     <EntitySetMapping Name="Weathers">
       <EntityTypeMapping TypeName="WP14_rn222cx_WeatherModel.Weather">
         <MappingFragment StoreEntitySet="Weather">
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Rainfall" ColumnName="Rainfall" />
+          <ScalarProperty Name="Temp" ColumnName="Temp" />
+          <ScalarProperty Name="WeatherID" ColumnName="WeatherID" />
           <ScalarProperty Name="NextUpdate" ColumnName="NextUpdate" />
-          <ScalarProperty Name="ForeastID" ColumnName="ForeastID" />
           <ScalarProperty Name="LocationID" ColumnName="LocationID" />
           <ScalarProperty Name="Period" ColumnName="Period" />
           <ScalarProperty Name="Wind" ColumnName="Wind" />
           <ScalarProperty Name="Degrees" ColumnName="Degrees" />
-          <ScalarProperty Name="Rain" ColumnName="Rain" />
-          <ScalarProperty Name="Temp" ColumnName="Temp" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -5,7 +5,6 @@
       <EntityTypeMapping TypeName="WP14_rn222cx_WeatherModel.Location">
         <MappingFragment StoreEntitySet="Location">
           <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-          <ScalarProperty Name="NextUpdate" ColumnName="NextUpdate" />
           <ScalarProperty Name="Latitude" ColumnName="Latitude" />
           <ScalarProperty Name="Longitude" ColumnName="Longitude" />
           <ScalarProperty Name="Country" ColumnName="Country" />

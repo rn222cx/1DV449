@@ -10,12 +10,11 @@
             <PropertyRef Name="LocationID" />
           </Key>
           <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NextUpdate" Type="datetime2" Precision="0" />
-          <Property Name="Latitude" Type="float" />
-          <Property Name="Longitude" Type="float" />
-          <Property Name="Country" Type="nvarchar" MaxLength="50" />
-          <Property Name="County" Type="nvarchar" MaxLength="50" />
-          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="County" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -33,19 +32,17 @@
           </Key>
           <Property Name="WeatherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LocationID" Type="int" />
-          <Property Name="Period" Type="datetime2" Precision="0" />
-          <Property Name="Wind" Type="varchar" MaxLength="50" />
-          <Property Name="Degrees" Type="varchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" />
-          <Property Name="Temp" Type="varchar" MaxLength="50" />
-          <Property Name="NextUpdate" Type="datetime2" Precision="0" />
-          <Property Name="Rainfall" Type="varchar" MaxLength="50" />
-          <Property Name="Symbol" Type="varchar" MaxLength="50" />
+          <Property Name="Period" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="NextUpdate" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="Wind" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Degrees" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Temp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rainfall" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Weather_Location">
-          <End Role="Location" Type="Self.Location" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
           <End Role="Weather" Type="Self.Weather" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Location">
@@ -104,12 +101,11 @@
             <PropertyRef Name="LocationID" />
           </Key>
           <Property Name="LocationID" Type="Int32" Nullable="false" />
-          <Property Name="NextUpdate" Type="DateTime" Precision="0" />
-          <Property Name="Latitude" Type="Double" />
-          <Property Name="Longitude" Type="Double" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="Double" Nullable="false" />
+          <Property Name="Longitude" Type="Double" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Weathers" Relationship="Self.FK_Weather_Location" FromRole="Location" ToRole="Weather" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -127,16 +123,16 @@
             <PropertyRef Name="WeatherID" />
           </Key>
           <Property Name="LocationID" Type="Int32" />
-          <Property Name="Period" Type="DateTime" Precision="0" />
-          <Property Name="Wind" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Degrees" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Temp" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Period" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Wind" Type="String" MaxLength="50" Unicode="false" FixedLength="false" Nullable="false" />
+          <Property Name="Degrees" Type="String" MaxLength="50" Unicode="false" FixedLength="false" Nullable="false" />
+          <Property Name="Temp" Type="String" MaxLength="50" Unicode="false" FixedLength="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Location" Relationship="Self.FK_Weather_Location" FromRole="Weather" ToRole="Location" />
-          <Property Name="NextUpdate" Type="DateTime" Precision="0" />
+          <Property Name="NextUpdate" Type="DateTime" Precision="0" Nullable="false" />
           <Property Name="WeatherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rainfall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rainfall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <Association Name="FK_Weather_Location">
           <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
@@ -169,7 +165,6 @@
             <EntityTypeMapping TypeName="WP14_rn222cx_WeatherModel.Location">
               <MappingFragment StoreEntitySet="Location">
                 <ScalarProperty Name="LocationID" ColumnName="LocationID" />
-                <ScalarProperty Name="NextUpdate" ColumnName="NextUpdate" />
                 <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
                 <ScalarProperty Name="Country" ColumnName="Country" />

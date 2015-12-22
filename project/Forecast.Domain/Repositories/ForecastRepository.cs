@@ -20,18 +20,18 @@ namespace Forecast.Domain.Repositories
             }
         }
 
-        public override void AddWeather(IEnumerable<Weather> weather)
-        {
-            foreach (Weather item in weather)
-            {
-                _context.Weathers.Add(item);
-            }
-        }
-
-        //public override void AddWeather(Weather weather)
+        //public override void AddWeather(IEnumerable<Weather> weather)
         //{
-        //    _context.Weathers.Add(weather);
+        //    foreach (Weather item in weather)
+        //    {
+        //        _context.Weathers.Add(item);
+        //    }
         //}
+
+        public override void AddWeather(Weather weather)
+        {
+            _context.Weathers.Add(weather);
+        }
 
         public override void DeleteLocation(int id)
         {
@@ -39,42 +39,42 @@ namespace Forecast.Domain.Repositories
             _context.Locations.Remove(location);
         }
 
-        public override void DeleteWeather(IEnumerable<Weather> weather)
-        {
-            foreach (Weather item in weather)
-            {
-                //if (_context.Entry(item).State == EntityState.Detached)
-                //{
-                //    _context.Weathers.Attach(item);
-                //}
-
-                _context.Weathers.Remove(item);
-            }
-        }
-
-        //public override void DeleteWeather(int id)
+        //public override void DeleteWeather(IEnumerable<Weather> weather)
         //{
-        //    var weather = _context.Weathers.Find(id);
-        //    _context.Weathers.Remove(weather);
+        //    foreach (Weather item in weather)
+        //    {
+        //        //if (_context.Entry(item).State == EntityState.Detached)
+        //        //{
+        //        //    _context.Weathers.Attach(item);
+        //        //}
+
+        //        _context.Weathers.Remove(item);
+        //    }
         //}
 
-        public override IEnumerable<Weather> FindWeather(int id)
+        public override void DeleteWeather(int id)
         {
-            var findweather = from forecast in _context.Weathers.ToList()
-                               where forecast.WeatherID == id
-                               select forecast;
-
-            return findweather;
+            var weather = _context.Weathers.Find(id);
+            _context.Weathers.Remove(weather);
         }
 
-        public override IEnumerable<Location> GetCity(string cityName)
-        {
-            var findCity = from city in _context.Locations.ToList()
-                           where city.City.ToLower().Contains(cityName.ToLower())
-                           select city;
+        //public override IEnumerable<Weather> FindWeather(int id)
+        //{
+        //    var findweather = from Weather in _context.Weathers.ToList()
+        //                       where Weather.LocationID == id
+        //                       select Weather;
 
-            return findCity;
-        }
+        //    return findweather;
+        //}
+
+        //public override IEnumerable<Location> GetCity(string cityName)
+        //{
+        //    var findCity = from city in _context.Locations.ToList()
+        //                   where city.City.ToLower().Contains(cityName.ToLower())
+        //                   select city;
+
+        //    return findCity;
+        //}
 
         public override void Save()
         {
@@ -93,18 +93,18 @@ namespace Forecast.Domain.Repositories
 
         protected override IQueryable<Location> QueryLocations()
         {
-            return _context.Locations;
+            return _context.Locations.AsQueryable();
         }
 
         protected override IQueryable<Weather> QueryWeathers()
         {
-            return _context.Weathers;
+            return _context.Weathers.AsQueryable();
         }
 
-        public override Location GetLocationById(int id)
-        {
-            return _context.Locations.Find(id);
-        }
+        //public override Location GetLocationById(int id)
+        //{
+        //    return _context.Locations.Find(id);
+        //}
 
     }
 }

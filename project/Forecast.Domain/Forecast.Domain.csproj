@@ -101,6 +101,7 @@
       <LastGenOutput>WP14_rn222cx_WeatherModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="DataModels\WP14_rn222cx_WeatherModel.edmx.diagram">
       <DependentUpon>WP14_rn222cx_WeatherModel.edmx</DependentUpon>
     </None>

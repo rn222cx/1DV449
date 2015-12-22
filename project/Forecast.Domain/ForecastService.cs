@@ -3,8 +3,6 @@ using Forecast.Domain.WebServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Forecast.Domain
 {
@@ -30,7 +28,7 @@ namespace Forecast.Domain
         {
             var city = _repository.GetCity(cityName);
 
-            if (city.Count() == 0)
+            if (!city.Any())
             {
                 city = _geoWebservice.GetLocation(cityName);
 
@@ -44,29 +42,22 @@ namespace Forecast.Domain
         public override IEnumerable<Weather> RefreshWeather(Location location)
         {
             var weather = _repository.FindWeather(location.LocationID);
-
-            if (weather.Count() == 0)
+            if (!weather.Any() || weather.Any(x => x.NextUpdate < DateTime.Now))
             {
-                weather = _owmWebservice.GetForecast(location);
-                _repository.AddWeather(weather);
-                _repository.Save();
-            }
-            else
-            {
-                foreach (Weather item in weather)
-                {
-                    if (item.NextUpdate < DateTime.Now)
-                    {
-                        _repository.DeleteWeather(weather);
-                        _repository.Save();
-
-                        weather = _owmWebservice.GetForecast(location);
-
-                        _repository.AddWeather(weather);
-                        _repository.Save();
-                        break;
-                    }
+                foreach (var item in weather)
+                { 
+                    _repository.DeleteWeather(item.WeatherID);                                
                 }
+
+                weather = _owmWebservice.GetForecast(location);
+
+                foreach (var item in weather)
+                {
+                    _repository.AddWeather(item);                                    
+                }
+
+
+                _repository.Save();
             }
 
             return weather;

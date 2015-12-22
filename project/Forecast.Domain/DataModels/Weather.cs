@@ -14,13 +14,14 @@ namespace Forecast.Domain
     
     public partial class Weather
     {
-        public Nullable<int> LocationID { get; set; }
-        public Nullable<System.DateTime> Period { get; set; }
+       // public Nullable<int> LocationID { get; set; }
+        public int LocationID { get; set; }
+        public System.DateTime Period { get; set; }
         public string Wind { get; set; }
         public string Degrees { get; set; }
         public string Temp { get; set; }
         public string Description { get; set; }
-        public Nullable<System.DateTime> NextUpdate { get; set; }
+        public System.DateTime NextUpdate { get; set; }
         public int WeatherID { get; set; }
         public string Rainfall { get; set; }
         public string Symbol { get; set; }

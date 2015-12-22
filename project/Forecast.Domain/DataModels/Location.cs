@@ -21,9 +21,8 @@ namespace Forecast.Domain
         }
     
         public int LocationID { get; set; }
-        public Nullable<System.DateTime> NextUpdate { get; set; }
-        public Nullable<double> Latitude { get; set; }
-        public Nullable<double> Longitude { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
         public string Country { get; set; }
         public string County { get; set; }
         public string City { get; set; }

@@ -41,20 +41,44 @@ namespace Forecast.Domain.WebServices
 
             //return JArray.Parse(result).Select(f => new Weather(f)).ToList();
 
-            // Example without stringbulider.
-
             JObject results = JObject.Parse(rawJson);
             var Forecasts = new List<Weather>();
 
             foreach (var result in results["list"])
             {
+                int locationID = location.LocationID;
+                string Period = (string)result["dt_txt"];
                 string temp = (string)result["main"]["temp"];
                 string symbol = (string)result["weather"][0]["icon"];
-
-                Forecasts.Add(new Weather(temp, symbol));
+                string rainfall = (string)result["rain"]["3h"];
+                string wind = (string)result["wind"]["speed"];
+                string degrees = (string)result["wind"]["deg"];
+                string description = (string)result["weather"][0]["description"];
+                Forecasts.Add(new Weather(locationID, Period, symbol, temp, rainfall, wind, degrees, description));
             }
 
             return Forecasts;
+
+            //public Weather(JToken token)
+            //{
+
+            //    //Period = DateTime.ParseExact((token["list"][0]["dt_txt"]).ToString(),
+            //    //    "ddd MMM dd HH:mm:ss zz00 yyyy", CultureInfo.InvariantCulture);
+            //    Wind = token["list"][0]["wind"]["speed"].ToString();
+            //    Degrees = token["list"][0]["wind"]["deg"].ToString();
+            //   // Rainfall = token["list"][0]["rain"]["3h"].ToString();
+            //    Temp = token["list"][0]["main"]["temp"].ToString();
+            //    Description = token["list"][0]["weather"][0]["description"].ToString();
+            //    NextUpdate = DateTime.Now.AddMinutes(10);
+            //    // City = token.Value<string>("lng");
+            //    Symbol = token["list"][0]["weather"][0]["icon"].ToString();
+
+
+            //    //City = token["city"]["id"].ToString();
+            //    //WheaterType = token["list"][0]["weather"][0]["icon"].ToString();
+            //    //CreatedAt = DateTime.ParseExact((tweetToken["created_at"]).ToString(),
+            //    //    "ddd MMM dd HH:mm:ss zz00 yyyy", CultureInfo.InvariantCulture);
+            //}
 
         }
     }

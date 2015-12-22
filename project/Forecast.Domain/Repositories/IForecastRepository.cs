@@ -11,12 +11,12 @@ namespace Forecast.Domain.Repositories
         IEnumerable<Weather> FindWeather(int id);
         IEnumerable<Weather> GetWeather();
         Weather GetWeather(int id);
-      //  void AddWeather(Weather weather);
-        void AddWeather(IEnumerable<Weather> weather);
+        void AddWeather(Weather weather);
+       // void AddWeather(IEnumerable<Weather> weather);
 
         void UpdateWeather(Weather weather);
-      //  void DeleteWeather(int id);
-        void DeleteWeather(IEnumerable<Weather> weather);
+        void DeleteWeather(int id);
+      //  void DeleteWeather(IEnumerable<Weather> weather);
 
         IEnumerable<Location> GetLocation();
         Location GetLocationById(int id);

@@ -15,11 +15,17 @@ namespace Forecast.Domain
             // Empty!        
         }
 
-        public Weather(string temp, string symbol)
+        public Weather(int locationID, string period, string symbol, string temp, string rainfall, string wind, string degrees, string description)
         {
-            LocationID = 3;
+            LocationID = locationID;
+            Period = DateTime.Parse(period);
             Temp = temp;
             Symbol = symbol;
+            NextUpdate = DateTime.Now.AddMinutes(5);
+            Wind = wind;
+            Degrees = degrees;
+            Description = description;
+            Rainfall = rainfall == null ? "0" : rainfall;
         }
 
         //public Weather(JToken token)

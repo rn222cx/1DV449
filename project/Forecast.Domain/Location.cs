@@ -9,25 +9,14 @@ namespace Forecast.Domain
 {
     public partial class Location
     {
-        //public Location()
-        //{
-        //    // Empty!
-        //}
-        //public string Country { get; set; }
-        //public string County { get; set; }
-        //public string City { get; set; }
-        //public string Latitude { get; set; }
-        //public string Longitude { get; set; }
-
         public Location(JToken token)
             : this()
         {
-            Country = token["countryName"].ToString();
-            County = token["adminName1"].ToString();
-            City = token["name"].ToString();
+            Country = token.Value<string>("countryName");
+            County = token.Value<string>("adminName1");
+            City = token.Value<string>("name");
             Latitude = token.Value<double>("lat");
             Longitude = token.Value<double>("lng");
-            //Longitude = token["lng"].ToString();
         }
     }
 }

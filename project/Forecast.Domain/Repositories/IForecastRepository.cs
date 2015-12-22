@@ -9,22 +9,12 @@ namespace Forecast.Domain.Repositories
     public interface IForecastRepository : IDisposable
     {
         IEnumerable<Weather> FindWeather(int id);
-        IEnumerable<Weather> GetWeather();
-        Weather GetWeather(int id);
         void AddWeather(Weather weather);
-       // void AddWeather(IEnumerable<Weather> weather);
-
-        void UpdateWeather(Weather weather);
         void DeleteWeather(int id);
-      //  void DeleteWeather(IEnumerable<Weather> weather);
 
-        IEnumerable<Location> GetLocation();
         Location GetLocationById(int id);
-        Location GetLocation(int id);
         IEnumerable<Location> GetCity(string cityName);
-        void AddLocation(IEnumerable<Location> location);
-        //void AddLocation(Location location);
-        void UpdateLocation(Location location);
+        void AddLocation(Location location);
         void DeleteLocation(int id);
 
         void Save();

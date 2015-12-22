@@ -10,57 +10,22 @@ namespace Forecast.Domain.Repositories
     {
         protected abstract IQueryable<Weather> QueryWeathers();
         protected abstract IQueryable<Location> QueryLocations();
-
-
-        public abstract void AddLocation(IEnumerable<Location> location);
-       // public abstract void AddWeather(IEnumerable<Weather> weather);
-      //  public abstract void DeleteWeather(IEnumerable<Weather> weather);
-       // public abstract Location GetLocationById(int id);
-
+        public abstract void AddLocation(Location location);
         public Location GetLocationById(int id)
         {
             return QueryLocations().SingleOrDefault(l => l.LocationID == id);
         }
 
-         public abstract void AddWeather(Weather weather);
+        public abstract void AddWeather(Weather weather);
 
         public abstract void DeleteLocation(int id);
 
         public abstract void DeleteWeather(int id);
 
-        public IEnumerable<Location> GetLocation()
-        {
-            return QueryLocations().ToList();
-        }
-
-        public Location GetLocation(int id)
-        {
-            return QueryLocations().SingleOrDefault(w => w.LocationID == id);
-        }
-       // public abstract IEnumerable<Location> GetCity(string cityName);
-        public IEnumerable<Location> GetCity(string cityName)
+        public IEnumerable<Location> GetCity(string cityName) // spara
         {
             return QueryLocations().Select(c => c).Where(c => c.City == cityName).ToList();
         }
-        public Location FindCityByName(string cityName)
-        {
-            return QueryLocations().SingleOrDefault(u => u.City == cityName);
-        }
-
-        public IEnumerable<Weather> GetWeather()
-        {
-            return QueryWeathers().ToList();
-        }
-
-        public Weather GetWeather(int id)
-        {
-            return QueryWeathers().SingleOrDefault(w => w.WeatherID == id);
-        }
-
-        public abstract void UpdateLocation(Location location);
-
-        public abstract void UpdateWeather(Weather weather);
-       // public abstract IEnumerable<Weather> FindWeather(int id);
 
         public IEnumerable<Weather> FindWeather(int id)
         {

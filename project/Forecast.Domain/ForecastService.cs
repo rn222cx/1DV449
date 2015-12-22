@@ -31,8 +31,11 @@ namespace Forecast.Domain
             if (!city.Any())
             {
                 city = _geoWebservice.GetLocation(cityName);
+                foreach (var loc in city)
+                {
+                    _repository.AddLocation(loc);
+                }
 
-                _repository.AddLocation(city);
                 _repository.Save();
             }
 

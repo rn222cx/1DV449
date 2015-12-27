@@ -16,7 +16,6 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            @*@Html.ValidationSummary()*@
             @Html.ValidationSummary("", new { @class = "validation-error" })
 
             @Html.LabelFor(m => m.CityName)

@@ -1,0 +1,18 @@
+﻿CACHE MANIFEST
+# version 1
+
+CACHE:
+/Content/Img/heaven2.png
+/Content/bootstrap.min.css
+#/Content/Site.css
+/Content/jquery-1.9.1.min.js
+/Content/jquery.checknet-1.6.min.js
+/Scripts/respond.js
+/Scripts/bootstrap.min.js
+#OfflineView.html
+
+FALLBACK:
+#/ OfflineView.html
+
+NETWORK:
+*

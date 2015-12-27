@@ -145,6 +145,8 @@
     <Content Include="Content\Img\heaven.png" />
     <Content Include="Content\Img\heaven2.png" />
     <Content Include="Content\Img\Weather-Header.jpg" />
+    <Content Include="Content\jquery-1.9.1.min.js" />
+    <Content Include="Content\jquery.checknet-1.6.min.js" />
     <Content Include="Content\WeatherSymbols\01d.png" />
     <Content Include="Content\WeatherSymbols\01n.png" />
     <Content Include="Content\WeatherSymbols\02d.png" />
@@ -167,6 +169,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="OfflineView.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Data\owm.json" />
@@ -182,6 +185,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="testa.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -198,6 +202,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Weather.cshtml" />
     <Content Include="Views\Forecast\Weather.cshtml" />
     <Content Include="Views\Shared\_FlashMessage.cshtml" />
+    <None Include="manifest.appcache" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

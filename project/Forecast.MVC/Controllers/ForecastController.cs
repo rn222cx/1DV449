@@ -50,7 +50,7 @@ namespace Forecast.MVC.Controllers
             }
             catch (DataException)
             {
-                TempData["error"] = "Sorry, could not get the location";
+                TempData["error"] = "Sorry, lost connection";
             }
 
             return View(model);

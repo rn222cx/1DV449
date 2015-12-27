@@ -3,6 +3,7 @@ using Forecast.Domain.WebServices;
 using Forecast.MVC.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -37,29 +38,35 @@ namespace Forecast.MVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //var webservice = new GeoNamesWebService();
-                    //model.Locations = webservice.GetLocation(model.CityName); //lat=56.87767&lon=14.80906
                     model.Locations = _service.Getlocation(model.CityName);
+                    if (!model.Locations.Any())
+                    {
+                        TempData["error"] = "Could not found location named " + model.CityName;
+                    }
                 }
 
                 return View(model);
 
             }
-            catch (Exception ex)
+            catch (DataException)
             {
-                ModelState.AddModelError(String.Empty, ex.Message);
+                TempData["error"] = "Sorry, could not get the location";
             }
 
             return View(model);
         }
-        // GET:
+        // GET Weather:
         public ActionResult Weather(int id, ForecastIndexViewModel model)
         {
-            model.location = _service.GetLocationById(id);
-            model.Weathers = _service.RefreshWeather(model.location);
-
-
-
+            try
+            {
+                model.location = _service.GetLocationById(id);
+                model.Weathers = _service.RefreshWeather(model.location);
+            }
+            catch (DataException)
+            {
+                TempData["error"] = "Sorry, could not get forecast";
+            }
 
             return View(model);
         }

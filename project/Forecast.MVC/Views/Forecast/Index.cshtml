@@ -2,50 +2,44 @@
 
 
 @{
-    ViewBag.Title = "WeatherIndex";
+    ViewBag.Title = "Weather locations";
 }
 
-<h2>Index</h2>
 
-<div>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary()
+<div class="main-search">
 
-        @Html.LabelFor(m => m.CityName, "Chose city: ")
-        @Html.EditorFor(m => m.CityName)
+    <div class="search-box form-group">
+        <h1>WeatherCheck</h1>
 
-        <button type="submit" class="btn btn-default">Confirm City</button>
-    }
+        @Html.Partial("_FlashMessage")
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @*@Html.ValidationSummary()*@
+            @Html.ValidationSummary("", new { @class = "validation-error" })
+
+            @Html.LabelFor(m => m.CityName)
+            
+            @Html.EditorFor(m => m.CityName, new { htmlAttributes = new { @class = "form-control", maxLength = 50, required = "required", autofocus = "autofocus" } })
+
+
+            <br /><button type="submit" class="btn btn-success">Search location</button>
+        }
+    </div>
 </div>
 
-<div>
+<div id="search-results">
     @if (Model != null && Model.HasCity)
     {
+        <h3>Search result</h3>
         foreach (var location in Model.Locations)
         {
             <p>
-                @location.County
+                @location.Country @location.County
+                @Html.ActionLink(@location.City, "Weather", new { id= @location.LocationID})
             </p>
-            <p>
-                @location.Latitude @location.Longitude
-                @Html.ActionLink(@location.City, "Weather", new { id= @location.LocationID, lat = @location.Latitude, lon = @location.Longitude })
-            </p>
-
         }
-        @*@Html.DisplayFor(m => m.Weathers)*@
     }
 
-    @*@foreach (var forecast in Model)
-        {
-            <h3>
-                @forecast.City
-            </h3>
-            <h3>
-                @forecast.WheaterType
-                <img src="~/Weather_Fonts/@(forecast.WheaterType).png" alt="Weather icon" />
-            </h3>
-
-        }*@
 </div>

@@ -1,6 +1,19 @@
-﻿<h3>
+﻿
+@*@Html.DisplayFor(m => m.Weathers)*@
+
+@{var weekday = Model.DayOfWeek(Model.Period.Date);}
+
+
+    <p>
+        @weekday
+    </p>
+
+<p>
+    @Model.Period
+</p>
+<p>
     @Model.Temp
-</h3>
-<h3>
+</p>
+<p>
     <img src="~/Content/WeatherSymbols/@(Model.Symbol).png" alt="Weather icon" />
-</h3>
+</p>

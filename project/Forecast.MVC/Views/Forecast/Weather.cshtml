@@ -1,39 +1,46 @@
 ﻿@model Forecast.MVC.ViewModels.ForecastIndexViewModel
 
 
-@Model.location.City
+<h2>Weather forecast for @Model.location.City</h2>
 
-@Html.DisplayFor(m => m.Weathers)
-    
+<div class="weekday">
 
-
-@*@foreach (var forecast in Model.Weathers)
-    {
-        <h3>
-            @forecast.Temp
-        </h3>
-        <h3>
-            @forecast.Symbol
-            <img src="~/Content/WeatherSymbols/@(forecast.Symbol).png" alt="Weather icon" />
-        </h3>
-
-    }*@
-
-@*@if (Model != null && Model.HasForcast)
+@if (Model != null && Model.HasForecast)
 {
-    foreach (var item in @Model.Forecasts)
+
+    foreach (var item in Model.Weathers)
     {
-        var day = Model.WeekDay(item.NextUpdate, item.Period);
+        var dayOfWeek = Model.DayOfWeek(item.Period);
 
-        if (day != null)
+        if (dayOfWeek != null)
         {
-            <h3>@day</h3>
+            @Html.Raw(@dayOfWeek)
+            <ul class="ul-head">
+                <li>Time</li>
+                <li>Forecast</li>
+                <li>Temp</li>
+                <li>Precipitation</li>
+                <li>Wind</li>
+                <li>Description</li>
+            </ul>
         }
+        <ul>
+            <li>@item.Period.ToString("HH:mm")</li>
+            <li><img src="~/Content/WeatherSymbols/@(item.Symbol).png" alt="Weather icon" /></li>
+            <li>@item.Temp&deg;C</li>
+            <li>@item.Rainfall mm</li>
+            <li>@item.Wind meter/sec</li>
+            <li>@item.Description</li>
+            
+        </ul>
 
-        <p>
-            @Model.TimePeriod(item.LastUpdate, item.NextUpdate)
-        <span class="weatherSymbol"><img src="http://api.yr.no/weatherapi/weathericon/1.1/?symbol=@item.Symbol;content_type=image/png" /></span>
-        <span class="temp">@item.Temperature &deg;C</span>
-    </p>
     }
-}*@
+
+
+}
+else
+{
+        <p>Sorry! could not find any weather forecast for the specific location</p>
+}
+
+</div>

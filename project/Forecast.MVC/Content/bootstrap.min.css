@@ -53,7 +53,7 @@ textarea {
 
 .main-search h1{
     color: #fff;
-    padding: 2%;
+    padding: 3%;
     text-shadow: 2px 2px 3px rgba(0,0,0,.6);
     font-size: 5em;
 }
@@ -105,10 +105,8 @@ footer{
 }
 
 #netWarn {
-    position: absolute;
-    top: 25%;
-    right: 25%;
-    width: 50%;
+    position: fixed;
+    width: 100%;
 	display:none; margin:0; padding:0.5em 1em; border:0; border-bottom:thin solid #FFDEDE; text-align:center; color:#666; text-shadow:1px 1px 1px #FFEFEF;
 	background-color: #FFEFEF;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFEFEF), to(#FFDFDF)); /* Saf4+, Chrome */
@@ -116,4 +114,9 @@ footer{
 	background-image:    -moz-linear-gradient(top, #FFEFEF, #FFDFDF); /* FF3.6+ */
 	background-image:      -o-linear-gradient(top, #FFEFEF, #FFDFDF); /* Opera 11.10+ */
 	background-image:         linear-gradient(to bottom, #FFEFEF, #FFDFDF);
+}
+
+.disable-links{
+    pointer-events:none;
+    cursor:default;
 }

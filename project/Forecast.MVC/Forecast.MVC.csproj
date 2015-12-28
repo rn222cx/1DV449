@@ -145,8 +145,7 @@
     <Content Include="Content\Img\heaven.png" />
     <Content Include="Content\Img\heaven2.png" />
     <Content Include="Content\Img\Weather-Header.jpg" />
-    <Content Include="Content\jquery-1.9.1.min.js" />
-    <Content Include="Content\jquery.checknet-1.6.min.js" />
+    <Content Include="Scripts\jquery.checknet-1.6.min.js" />
     <Content Include="Content\WeatherSymbols\01d.png" />
     <Content Include="Content\WeatherSymbols\01n.png" />
     <Content Include="Content\WeatherSymbols\02d.png" />

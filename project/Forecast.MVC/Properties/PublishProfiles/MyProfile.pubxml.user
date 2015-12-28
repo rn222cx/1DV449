@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>Z:\</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/owm.json">
+      <publishTime>12/06/2015 22:14:00</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>12/19/2015 17:15:36</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>12/19/2015 17:15:36</publishTime>
+    </File>
+    <File Include="bin/Forecast.Domain.dll">
+      <publishTime>12/28/2015 16:09:25</publishTime>
+    </File>
+    <File Include="bin/Forecast.MVC.dll">
+      <publishTime>12/28/2015 19:00:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>12/05/2015 23:30:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/NotFoundMvc.dll">
+      <publishTime>12/05/2015 23:43:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>12/05/2015 23:30:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>12/05/2015 23:30:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>12/05/2015 23:30:35</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>12/05/2015 23:30:33</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>12/25/2015 11:59:22</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>12/28/2015 15:23:56</publishTime>
+    </File>
+    <File Include="Content/Img/heaven.png">
+      <publishTime>12/26/2015 21:50:03</publishTime>
+    </File>
+    <File Include="Content/Img/heaven2.png">
+      <publishTime>12/27/2015 12:04:15</publishTime>
+    </File>
+    <File Include="Content/Img/Weather-Header.jpg">
+      <publishTime>12/25/2015 11:22:55</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>12/27/2015 23:54:32</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/01d.png">
+      <publishTime>12/20/2015 14:02:26</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/01n.png">
+      <publishTime>12/20/2015 14:02:26</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/02d.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/02n.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/03d.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/03n.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/04d.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/04n.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/09d.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/09n.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/10d.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/10n.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/11d.png">
+      <publishTime>12/20/2015 14:02:25</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/11n.png">
+      <publishTime>12/20/2015 14:02:26</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/13d.png">
+      <publishTime>12/20/2015 14:02:26</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/13n.png">
+      <publishTime>12/20/2015 14:02:26</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/50d.png">
+      <publishTime>12/20/2015 14:02:26</publishTime>
+    </File>
+    <File Include="Content/WeatherSymbols/50n.png">
+      <publishTime>12/20/2015 14:02:26</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>12/05/2015 23:30:27</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>12/05/2015 23:30:29</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>12/05/2015 23:30:29</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>12/05/2015 23:30:29</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>12/05/2015 23:30:29</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>12/05/2015 23:30:27</publishTime>
+    </File>
+    <File Include="manifest.appcache">
+      <publishTime>12/28/2015 18:59:46</publishTime>
+    </File>
+    <File Include="OfflineView.html">
+      <publishTime>12/27/2015 16:28:14</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/19/2015 17:15:39</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>12/05/2015 23:30:29</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>12/05/2015 23:30:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>12/05/2015 23:30:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>12/05/2015 23:30:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>12/05/2015 23:30:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.checknet-1.6.min.js">
+      <publishTime>12/28/2015 15:41:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>12/05/2015 23:30:33</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>12/05/2015 23:30:33</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>12/05/2015 23:30:33</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>12/05/2015 23:30:33</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>12/05/2015 23:30:32</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>12/05/2015 23:30:33</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>12/05/2015 23:30:33</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>12/28/2015 14:28:08</publishTime>
+    </File>
+    <File Include="testa.html">
+      <publishTime>12/27/2015 18:26:59</publishTime>
+    </File>
+    <File Include="Views/Forecast/Index.cshtml">
+      <publishTime>12/27/2015 18:25:35</publishTime>
+    </File>
+    <File Include="Views/Forecast/Weather.cshtml">
+      <publishTime>12/25/2015 09:58:02</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/Weather.cshtml">
+      <publishTime>12/23/2015 23:45:16</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>12/05/2015 23:30:27</publishTime>
+    </File>
+    <File Include="Views/Shared/NotFound.cshtml">
+      <publishTime>12/27/2015 13:46:04</publishTime>
+    </File>
+    <File Include="Views/Shared/_FlashMessage.cshtml">
+      <publishTime>12/27/2015 00:04:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>12/28/2015 18:14:48</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>12/05/2015 23:30:27</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>12/05/2015 23:30:27</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/28/2015 19:00:44</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

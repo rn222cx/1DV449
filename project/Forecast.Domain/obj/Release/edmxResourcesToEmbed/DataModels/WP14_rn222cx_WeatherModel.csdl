@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WP14_rn222cx_WeatherModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="Latitude" Type="Double" Nullable="false" />
+    <Property Name="Longitude" Type="Double" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Weathers" Relationship="Self.FK_Weather_Location" FromRole="Location" ToRole="Weather" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Weather">
+    <Key>
+      <PropertyRef Name="WeatherID" />
+    </Key>
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="Period" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="Wind" Type="String" MaxLength="50" Unicode="false" FixedLength="false" Nullable="false" />
+    <Property Name="Degrees" Type="String" MaxLength="50" Unicode="false" FixedLength="false" Nullable="false" />
+    <Property Name="Temp" Type="String" MaxLength="50" Unicode="false" FixedLength="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_Weather_Location" FromRole="Weather" ToRole="Location" />
+    <Property Name="NextUpdate" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="WeatherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rainfall" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Weather_Location">
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Weather" Type="Self.Weather" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="Weather">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WP14_rn222cx_WeatherEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Weathers" EntityType="Self.Weather" />
+    <AssociationSet Name="FK_Weather_Location" Association="Self.FK_Weather_Location">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Weather" EntitySet="Weathers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

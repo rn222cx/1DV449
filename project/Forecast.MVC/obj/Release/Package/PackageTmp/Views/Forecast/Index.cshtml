@@ -1,0 +1,44 @@
+﻿@model Forecast.MVC.ViewModels.ForecastIndexViewModel
+
+
+@{
+    ViewBag.Title = "Weather locations";
+}
+
+
+<div class="main-search">
+
+    <div class="search-box form-group">
+        <h1>WeatherCheck</h1>
+
+        @Html.Partial("_FlashMessage")
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "validation-error" })
+
+            @Html.LabelFor(m => m.CityName)
+            
+            @Html.EditorFor(m => m.CityName, new { htmlAttributes = new { @class = "form-control", maxLength = 50, required = "required", autofocus = "autofocus" } })
+
+
+            <br /><button type="submit" class="btn btn-success">Search location</button>
+        }
+    </div>
+</div>
+
+<div id="search-results">
+    @if (Model != null && Model.HasCity)
+    {
+        <h3>Search result</h3>
+        foreach (var location in Model.Locations)
+        {
+            <p>
+                @location.Country @location.County
+                @Html.ActionLink(@location.City, "Weather", new { id= @location.LocationID})
+            </p>
+        }
+    }
+
+</div>

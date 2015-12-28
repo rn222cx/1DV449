@@ -1,0 +1,98 @@
+﻿body {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    /*padding-left: 15px;
+    padding-right: 15px;*/
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.main-search{
+    background-image: url("Img/heaven2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+}
+
+.main-search h1{
+    color: #fff;
+    padding: 2%;
+    text-shadow: 2px 2px 3px rgba(0,0,0,.6);
+    font-size: 5em;
+}
+
+.search-box{
+    text-align: -webkit-center;
+}
+
+.validation-error li{
+    background-color: rgba(255, 0, 1, 0.47);
+    color: #fff;
+    width: 33%;
+    list-style-type: none;
+}
+
+#search-results{
+    text-align:center;
+    padding-bottom: 2%;
+}
+
+.weekday{
+    background-color:#fff;
+}
+.weekday ul{
+    width: 70%;
+    display: table;
+    table-layout: fixed;
+    margin: 0;
+}
+.weekday .ul-head li{
+    background-color:#5bc0de;
+    font-weight: 600;
+}
+.weekday li{
+    display: table-cell;
+    border: solid 1px #ccc;
+}
+
+footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    color: #999999;
+    height: 4%;
+    background-color: black;
+}
+.alert-danger{
+    width:50%;
+}
+
+#netWarn {
+    position: absolute;
+    top: 25%;
+    right: 25%;
+    width: 50%;
+	display:none; margin:0; padding:0.5em 1em; border:0; border-bottom:thin solid #FFDEDE; text-align:center; color:#666; text-shadow:1px 1px 1px #FFEFEF;
+	background-color: #FFEFEF;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFEFEF), to(#FFDFDF)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #FFEFEF, #FFDFDF); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image:    -moz-linear-gradient(top, #FFEFEF, #FFDFDF); /* FF3.6+ */
+	background-image:      -o-linear-gradient(top, #FFEFEF, #FFDFDF); /* Opera 11.10+ */
+	background-image:         linear-gradient(to bottom, #FFEFEF, #FFDFDF);
+}

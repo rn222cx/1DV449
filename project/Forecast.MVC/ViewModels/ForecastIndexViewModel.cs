@@ -33,7 +33,6 @@ namespace Forecast.MVC.ViewModels
 
         public string DayOfWeek(DateTime dateTime)
         {
-           // var english = new System.Globalization.CultureInfo("en-EN");
 
             if (dateTime.DayOfWeek == DateTime.Today.DayOfWeek && todayExist == false)
             {
@@ -43,7 +42,7 @@ namespace Forecast.MVC.ViewModels
             if (dateTime.DayOfWeek == DateTime.Now.AddDays(1).DayOfWeek && tomorrowExist == false)
             {
                 tomorrowExist = true;
-                if(todayExist == false) // If it is late and no today
+                if(todayExist == false) // If it is late and no today exist
                 {
                     return "<h3>Tomorrow</h3>";
                 }
@@ -55,15 +54,6 @@ namespace Forecast.MVC.ViewModels
             }
             return null;
         }
-
-        //public string Name
-        //{
-        //    get
-        //    {
-        //        return HasCity ? Weathers.First().Rainfall : "[Unknown]";
-        //    }
-        //}
-
 
     }
 }

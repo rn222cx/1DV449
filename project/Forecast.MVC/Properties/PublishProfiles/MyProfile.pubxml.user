@@ -22,10 +22,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2015 17:15:36</publishTime>
     </File>
     <File Include="bin/Forecast.Domain.dll">
-      <publishTime>12/28/2015 16:09:25</publishTime>
+      <publishTime>01/01/2016 22:01:01</publishTime>
     </File>
     <File Include="bin/Forecast.MVC.dll">
-      <publishTime>12/28/2015 19:00:42</publishTime>
+      <publishTime>01/01/2016 22:01:02</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>12/05/2015 23:30:35</publishTime>
@@ -103,7 +103,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/25/2015 11:59:22</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>12/28/2015 15:23:56</publishTime>
+      <publishTime>12/30/2015 12:11:06</publishTime>
     </File>
     <File Include="Content/Img/heaven.png">
       <publishTime>12/26/2015 21:50:03</publishTime>
@@ -190,10 +190,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2015 23:30:27</publishTime>
     </File>
     <File Include="manifest.appcache">
-      <publishTime>12/28/2015 18:59:46</publishTime>
+      <publishTime>01/01/2016 14:53:07</publishTime>
     </File>
     <File Include="OfflineView.html">
-      <publishTime>12/27/2015 16:28:14</publishTime>
+      <publishTime>12/30/2015 12:17:05</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>12/19/2015 17:15:39</publishTime>
@@ -214,7 +214,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2015 23:30:29</publishTime>
     </File>
     <File Include="Scripts/jquery.checknet-1.6.min.js">
-      <publishTime>12/28/2015 15:41:32</publishTime>
+      <publishTime>12/29/2015 17:32:36</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>12/05/2015 23:30:33</publishTime>
@@ -244,13 +244,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2015 18:26:59</publishTime>
     </File>
     <File Include="Views/Forecast/Index.cshtml">
-      <publishTime>12/27/2015 18:25:35</publishTime>
+      <publishTime>01/01/2016 20:00:37</publishTime>
     </File>
     <File Include="Views/Forecast/Weather.cshtml">
-      <publishTime>12/25/2015 09:58:02</publishTime>
+      <publishTime>12/29/2015 16:17:56</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/Weather.cshtml">
-      <publishTime>12/23/2015 23:45:16</publishTime>
+      <publishTime>01/01/2016 21:59:01</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>12/05/2015 23:30:27</publishTime>
@@ -262,7 +262,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2015 00:04:48</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/28/2015 18:14:48</publishTime>
+      <publishTime>01/01/2016 21:58:23</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>12/05/2015 23:30:27</publishTime>
@@ -271,7 +271,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/05/2015 23:30:27</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/28/2015 19:00:44</publishTime>
+      <publishTime>01/01/2016 22:01:03</publishTime>
     </File>
   </ItemGroup>
 </Project>

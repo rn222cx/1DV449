@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 
 namespace Forecast.Domain.WebServices
 {
@@ -14,8 +15,9 @@ namespace Forecast.Domain.WebServices
         public IEnumerable<Location> GetLocation(string location)
         {
             string rawJson;
+            string appid = WebConfigurationManager.AppSettings["geoKey"];
 
-            var requestUriString = String.Format("http://api.geonames.org/searchJSON?name={0}&maxRows=50&username=rn222cx", location);
+            var requestUriString = String.Format("http://api.geonames.org/searchJSON?name={0}&maxRows=50&username={1}", location, appid);
             var request = (HttpWebRequest)WebRequest.Create(requestUriString);
 
             using (var response = request.GetResponse())
@@ -24,11 +26,11 @@ namespace Forecast.Domain.WebServices
                 rawJson = reader.ReadToEnd();
             }
 
-            var lengthToStart = rawJson.IndexOf("[");
-            var lengthRawJson = rawJson.Length;
-            var contentRawJson = rawJson.Substring(lengthToStart, lengthRawJson - lengthToStart - 1);
+            var startContent = rawJson.IndexOf("[");
+            var lengthContent = rawJson.Length;
+            var content = rawJson.Substring(startContent, lengthContent - startContent - 1);
 
-            return JArray.Parse(contentRawJson).Select(f => new Location(f)).ToList();
+            return JArray.Parse(content).Select(f => new Location(f)).ToList();
         }
     }
 }

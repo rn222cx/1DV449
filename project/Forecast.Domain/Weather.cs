@@ -21,11 +21,11 @@ namespace Forecast.Domain
             Period = DateTime.Parse(period);
             Temp = temp;
             Symbol = symbol;
-            NextUpdate = DateTime.Now.AddMinutes(5);
+            NextUpdate = DateTime.Now.AddMinutes(10);
             Wind = wind;
             Degrees = degrees;
             Description = description;
-            Rainfall = rainfall == null ? "0" : rainfall;
+            Rainfall = rainfall == null ? "0" : rainfall; // rainfall data from api doesn't have values when no rain occurred.
         }
     }
 }

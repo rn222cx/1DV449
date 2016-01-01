@@ -11,19 +11,17 @@
     <div class="search-box form-group">
         <h1>WeatherCheck</h1>
 
+
         @Html.Partial("_FlashMessage")
 
         @using (Html.BeginForm())
         {
-            @Html.AntiForgeryToken()
+            @*@Html.AntiForgeryToken()*@ // cant be used because token being cached.
             @Html.ValidationSummary("", new { @class = "validation-error" })
 
-            @Html.LabelFor(m => m.CityName)
-            
             @Html.EditorFor(m => m.CityName, new { htmlAttributes = new { @class = "form-control", maxLength = 50, required = "required", autofocus = "autofocus" } })
 
-
-            <br /><button type="submit" class="btn btn-success">Search location</button>
+            <button type="submit" class="btn btn-success">Search location</button>
         }
     </div>
 </div>

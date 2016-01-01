@@ -1,7 +1,10 @@
 ﻿@model Forecast.MVC.ViewModels.ForecastIndexViewModel
 
 
-<h2>Weather forecast for @Model.location.City</h2>
+<h2 class="city-name">Weather forecast for @Model.location.City</h2>
+
+<img class="static-map img-responsive center-block" src="https://maps.googleapis.com/maps/api/staticmap?center=@Model.location.Latitude,@Model.location.Longitude&amp;zoom=11&amp;size=1000x300&amp;markers=icon:http://google-maps-icons.googlecode.com/files/cloudsun.png|@Model.location.Latitude,@Model.location.Longitude" />
+
 
 <div class="weekday">
 
@@ -15,28 +18,25 @@
         if (dayOfWeek != null)
         {
             @Html.Raw(@dayOfWeek)
-            <ul class="ul-head">
-                <li>Time</li>
-                <li>Forecast</li>
-                <li>Temp</li>
-                <li>Precipitation</li>
-                <li>Wind</li>
-                <li>Description</li>
+            <ul class="ul-head row">
+                <li class="col-sm-2">Time</li>
+                <li class="col-sm-2">Forecast</li>
+                <li class="col-sm-2">Temp</li>
+                <li class="col-sm-2">Rainfall</li>
+                <li class="col-sm-2">Wind</li>
+                <li class="col-sm-2">Description</li>
             </ul>
         }
-        <ul>
-            <li>@item.Period.ToString("HH:mm")</li>
-            <li><img src="~/Content/WeatherSymbols/@(item.Symbol).png" alt="Weather icon" /></li>
-            <li>@item.Temp&deg;C</li>
-            <li>@item.Rainfall mm</li>
-            <li>@item.Wind meter/sec</li>
-            <li>@item.Description</li>
-            
+        <ul class="row">
+            <li class="col-sm-2">@item.Period.ToString("HH:mm")</li>
+            <li class="col-sm-2"><img src="~/Content/WeatherSymbols/@(item.Symbol).png" alt="Weather icon" /></li>
+            <li class="col-sm-2">@item.Temp&deg;C</li>
+            <li class="col-sm-2">@item.Rainfall mm</li>
+            <li class="col-sm-2">@item.Wind m/sec</li>
+            <li class="col-sm-2">@item.Description</li>
         </ul>
 
     }
-
-
 }
 else
 {
@@ -44,3 +44,4 @@ else
 }
 
 </div>
+

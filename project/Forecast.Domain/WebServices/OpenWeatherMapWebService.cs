@@ -8,6 +8,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Configuration;
+using System.Configuration;
 using System.Web.Script.Serialization;
 
 namespace Forecast.Domain.WebServices
@@ -19,7 +21,7 @@ namespace Forecast.Domain.WebServices
         {
             string rawJson;
 
-            string appid = "0b7b7c10d558c6a0cf7ae9b427ad071b";
+            string appid = WebConfigurationManager.AppSettings["owmKey"];
 
             var requestUriString = String.Format("http://api.openweathermap.org/data/2.5/forecast?lat={0}&lon={1}&appid={2}&units=metric", location.Latitude, location.Longitude, appid);
 
@@ -50,18 +52,8 @@ namespace Forecast.Domain.WebServices
                 }
                 catch
                 {
-                    rainfall = "No rain data";
+                    rainfall = "0";
                 }
-
-                //var msgProperty = results.Property("main");
-                //if (msgProperty != null)
-                //{
-                //    rainfall = (string)result["rain"]["3h"];
-                //}
-                //else
-                //{
-                //    rainfall = "No rain data";
-                //}
 
                 string wind = (string)result["wind"]["speed"];
                 string degrees = (string)result["wind"]["deg"];

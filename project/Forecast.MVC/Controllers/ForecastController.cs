@@ -31,7 +31,7 @@ namespace Forecast.MVC.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken] // cant be used because token being cached.
         public ActionResult Index([Bind(Include = "CityName")] ForecastIndexViewModel model)
         {
             try
@@ -48,9 +48,9 @@ namespace Forecast.MVC.Controllers
                 return View(model);
 
             }
-            catch (DataException)
+            catch (Exception)
             {
-                TempData["error"] = "Sorry, lost connection";
+                TempData["error"] = "Sorry, could not get location";
             }
 
             return View(model);
@@ -63,7 +63,7 @@ namespace Forecast.MVC.Controllers
                 model.location = _service.GetLocationById(id);
                 model.Weathers = _service.RefreshWeather(model.location);
             }
-            catch (DataException)
+            catch (Exception)
             {
                 TempData["error"] = "Sorry, could not get forecast";
             }

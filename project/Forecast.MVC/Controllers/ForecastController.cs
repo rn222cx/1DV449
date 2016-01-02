@@ -50,7 +50,7 @@ namespace Forecast.MVC.Controllers
             }
             catch (Exception)
             {
-                TempData["error"] = "Sorry, could not get location";
+                TempData["error"] = "Sorry, technical difficulties";
             }
 
             return View(model);

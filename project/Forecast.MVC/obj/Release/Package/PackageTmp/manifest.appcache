@@ -8,11 +8,11 @@ Scripts/jquery-1.9.1.min.js
 Scripts/jquery.checknet-1.6.min.js
 Scripts/bootstrap.min.js
 Scripts/respond.min.js
-OfflineView.html
+#OfflineView.html
 
 FALLBACK:
-/ OfflineView.html
+#/ OfflineView.html
 
 NETWORK:
-#/ping.html
 ping.html
+*

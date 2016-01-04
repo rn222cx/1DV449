@@ -75,11 +75,9 @@ textarea {
 }
 
 .btn-success{
-    padding-top:1%;
 }
 
-.weekday{
-    background-color:#fff;
+.weekday{  
 }
 .weekday ul{
     list-style:none;
@@ -133,6 +131,15 @@ footer{
     max-height: 250px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.show-cache{
+    display: none;
+}
+
+#local-cache{
+    list-style:none;
+    text-align:center;
 }
 
 @media only screen and (max-width: 768px) {

@@ -40,10 +40,18 @@
 
     }
 }
-else
-{
-        <p>Sorry! could not find any weather forecast for the specific location</p>
-}
 
 </div>
 
+<script>
+    // Check browser support
+    if (typeof (Storage) !== "undefined") {
+        // if key exist remove it
+        if (localStorage.getItem('@(Model.location.City)') !== null) {
+            localStorage.removeItem('@(Model.location.City)');
+        }
+        // add new storage
+        var keyname = '@(Model.location.City)';
+        localStorage.setItem(keyname, window.location.href);
+    }
+</script>

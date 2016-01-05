@@ -10,14 +10,24 @@ Det finns väldigt många liknande applikationer, kanske inte så konstigt med t
 
 ![Schematisk bild](SchematiskBild.png)
 
-### Säkerhet och prestandaoptimering
+### Säkerhet
 
-ASP.NET MVC 5 inbyggt skydd mot taggar, script, SQL och XSS-attacker. 
-Entity Framework och LINQ skydd mot SQL-injections.
-Kommenterat ut hjälp metoden AntiForgeryToken som är skydd mot CRSF attacker då token value cachas med appcache.
+Applikationen använder sig av ramverket Razor som har inbyggt skydd mot skadlig indata som förhindra mot XSS-attacker. 
+Databasen använder ramverket Entity Framework och frågespråket LINQ som ger skydd för SQL-injections.
+Hjälp metoden AntiForgeryToken som ger skydd mot CRSF attacker är utkommenterad då token value cachas dessvärre med appcache.
+Jag ser dock inte detta som en säkerhetsrisk i applikationen då det finns ingen anledning att göra en CSRF attack på applikationen. 
 All databas kommunikation sker genom användaren Appuser som har särskilda rättigheter.
 
+### Prestandaoptimering
+
+All CSS och JavaScript/jQuery bibliotek är av minimerad version. Alla CSS filer ligger i header sektionen och JavaScript/jQuery ligger sist i body sektionen. Applicationen använder appcache för att cacha allt statisk på sidorna som ger en snabbare sidladdning.
+All data som hämtas från API:erna cachas i en databasen.
+
 ### Offline-first
+
+Applikationen använder sig av appcache som cacha allt statisk på sidan och de sidor som användaren har besökt innan kan användaren besöka offline. Sidan som visar väderprognosen spara url'en i localstorage, när användaren blir offline kommer en lista med sökta platser visas som hämtas från localstorage.
+Med hjälp av Checknet som är ett plugin till jQuery som pingar applicationen med jämna mellanrum kan applikationen känna av om man har någon kontakt. Scriptet pingar filen ping.html med ett intervall på 5 sekunder för att se om det finns någon kontakt. Vid offline kommer applikationen talar om detta och sidan får en minskad funktionalitet på sidan.
+
 
 ### Risker med din applikation
 

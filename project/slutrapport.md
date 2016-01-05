@@ -8,6 +8,8 @@ Det finns väldigt många liknande applikationer, kanske inte så konstigt med t
 
 ### Schematisk bild
 
+![Schematisk bild](SchematiskBild.png)
+
 ### Säkerhet och prestandaoptimering
 
 ASP.NET MVC 5 inbyggt skydd mot taggar, script, SQL och XSS-attacker. 

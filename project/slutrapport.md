@@ -36,7 +36,7 @@ All väderdata hämtas från openWeatherMap och lagras i databasen i minst 10 mi
 ### Offline-first
 
 Applikationen använder sig av appcache som cachar allt statiskt på sidan, det vill säga att de sidor som användaren har besökt innan kan denne besöka offline. Sidan som visar väderprognosen sparar url'en i localstorage och när användaren blir offline kommer en lista med sökta platser visas som hämtas från localstorage.
-Med hjälp av Checknet som är ett plugin till jQuery och som pingar applikationen med jämna mellanrum, kan applikationen känna av om man har någon kontakt med sidan. Scriptet pingar filen ping.html med ett intervall på 5 sekunder för att se om det finns någon kontakt. Vid offline kommer applikationen att visa detta och sidan får en minskad funktionalitet.
+Med hjälp av jQuery pluginet Checknet som pingar applikationen med jämna mellanrum kan applikationen känna av om man har någon kontakt med sidan. Scriptet pingar filen ping.html med ett intervall på 5 sekunder för att se om det finns någon kontakt. Vid offline kommer applikationen att visa detta och sidan får en minskad funktionalitet.
 
 ### Risker med din applikation
 

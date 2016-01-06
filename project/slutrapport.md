@@ -12,7 +12,7 @@ Det finns väldigt många liknande applikationer, kanske inte så konstigt med t
 
 ### Säkerhet
 
-Applikationen använder sig av ramverket Razor som har inbyggt skydd mot skadlig indata som förhindra mot XSS-attacker. 
+Applikationen använder sig av ramverket Razor som har inbyggt skydd mot skadlig indata som förhindra mot XSS-attacker, även .NET har skydd mot detta. 
 Databasen använder ramverket Entity Framework och frågespråket LINQ som ger skydd för SQL-injections.
 Hjälp metoden AntiForgeryToken som ger skydd mot CRSF attacker är utkommenterad då token value cachas dessvärre med appcache.
 Jag ser dock inte detta som en säkerhetsrisk i applikationen då det finns ingen anledning att göra en CSRF attack på applikationen. 
@@ -31,7 +31,32 @@ Med hjälp av Checknet som är ett plugin till jQuery som pingar applicationen m
 
 ### Risker med din applikation
 
+Applikationen förlitar sig helt på att API:ernas struktur och användnings vilkor förbli oförändrade.
+
 ### Egen reflektion kring projektet
+
+I helhet har projektet gått bra och jag har till största del fått den hjälp jag behöver genom att praktiskt tillämpa den teori vi har fått lära oss i paralell kursen.
+Att använda sig av appcache samt localstorage var förvånansvärt enkelt, jag hade räknat med att det skulle vara
+
+
+
+lätt
+appcache
+localstorage
+Razor
+
+svårt
+få ut datan från api
+domän sidan allmänt
+
+problem
+appcache (cacha allt)
+förändrad data i api (långa namn geonames och rainfall owm)
+Checknet, få det att funkar  i asp.net
+
+utvecklande
+skillnad på local och publicerande projekt
+allt
 
 ### betygshöjande med din applikation
 

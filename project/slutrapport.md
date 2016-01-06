@@ -36,7 +36,10 @@ Applikationen förlitar sig helt på att API:ernas struktur och användnings vil
 ### Egen reflektion kring projektet
 
 I helhet har projektet gått bra och jag har till största del fått den hjälp jag behöver genom att praktiskt tillämpa den teori vi har fått lära oss i paralell kursen.
-Att använda sig av appcache samt localstorage var förvånansvärt enkelt, jag hade räknat med att det skulle vara
+Att använda sig av appcache samt localstorage var förvånansvärt enkelt, jag hade räknat med att det skulle vara mer kod att implementera.
+Jag har haft en del svårigheter med att läsa ut data från API:erna samt hantera vissa förändringar som sker i API:ets data. Det har varit lite problematiskt med appcache då den cacha allt och det har skapat vissa problem exempelvis cachat token value i post formuläret, ping funktionen med Checknet pingar cachad sida som gör att pingen alltid får status 200. 
+Jag tycker projektet har varit väldigt utvecklande och fått lära mig många nya tekniker. 
+Offline first är något helt nytt för mig och jag kommer definitivt använda mig av det i mina nästkommande projekt. 
 
 
 

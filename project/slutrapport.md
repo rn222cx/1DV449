@@ -6,13 +6,22 @@ Jag valde att göra en väderapplikation då det fanns möjlighet att bygga vida
 
 Det finns väldigt många liknande applikationer, kanske inte så konstigt med tanke på att flera utav dem har något form av API som man kan använda sig av och gör det enkelt att skapa sin egna väderapplikation. 
 
+### Teknik
+
+* Applikationen bygger på ramverket ASP.NET MVC 5 med C# som programmeringsspråk. 
+* Databasen är av typen MSSQL och hanteras med ramverket Entity Framework.
+* Ramverket Razor används i vyerna för att enklare kunna arbeta gentemot modellen.
+* Bootstrap för att få en responsiv applikation samt en del CSS klasser.
+* jQuery används till validering samt viss offline funktionalitet.
+
+
 ### Schematisk bild
 
 ![Schematisk bild](SchematiskBild.png)
 
 ### Säkerhet
 
-Applikationen bygger på ASP.NET MVC som har inbyggt skydd mot skadlig indata som förhindra mot XSS-attacker, även ramverket Razor som används i vyerna har skydd mot indata. 
+Applikationen bygger på ASP.NET som har inbyggt skydd mot skadlig indata som förhindra mot XSS-attacker, även ramverket Razor som används i vyerna har skydd mot indata. 
 Databasen använder ramverket Entity Framework och frågespråket LINQ som ger skydd för SQL-injections.
 Hjälp metoden AntiForgeryToken som ger skydd mot CRSF attacker är utkommenterad då token value cachas dessvärre med appcache.
 Jag ser dock inte detta som en säkerhetsrisk i applikationen då det finns ingen anledning att göra en CSRF attack på applikationen. 

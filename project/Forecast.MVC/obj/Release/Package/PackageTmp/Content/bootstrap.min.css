@@ -113,9 +113,10 @@ footer{
 	background-image:         linear-gradient(to bottom, #FFEFEF, #FFDFDF);
 }
 
-.disable-links{
+.disable-links a{
     pointer-events:none;
     cursor:default;
+    color:#9E9E9E;
 }
 
 .city-name{

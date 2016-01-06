@@ -30,7 +30,7 @@
             </ul>
         }
         <ul class="row">
-            <li class="col-sm-2">@item.Period.ToString("HH:mm")</li>
+            <li class="col-sm-2"><span class="glyphicon glyphicon-time"></span> @item.Period.ToString("HH:mm")</li>
             <li class="col-sm-2"><img src="~/Content/WeatherSymbols/@(item.Symbol).png" alt="Weather icon" /></li>
             <li class="col-sm-2">@item.Temp&deg;C</li>
             <li class="col-sm-2">@item.Rainfall mm</li>

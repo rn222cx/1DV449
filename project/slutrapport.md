@@ -1,3 +1,5 @@
+Länk till demonstrations film https://www.screenmailer.com/v/PUznBbaJ06PR8eU
+
 ### Inledning
 
 Projektet är en väderapplikation som kan söka upp väderprognoser i hela världen med hjälp av API:erna från GeoNames.com samt openWeatherMap.com.

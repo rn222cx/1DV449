@@ -6,6 +6,7 @@ Länk till applikationen http://172.16.214.1/1dv409/rn222cx (OBS krävs anslutni
 
 Projektet är en väderapplikation som kan söka upp väderprognoser i hela världen med hjälp av API:erna från GeoNames.com samt openWeatherMap.com.
 Applikationen fungerar på så sätt att användaren söker på en plats och får upp matchande platser i en lista. Vid val av plats/ort kommer en sida att visa en femdygnsprognos över den valda lokaliteten.
+
 Jag valde att göra en väderapplikation då det fanns möjlighet att bygga vidare på det rekommenderade projektet i den parallella kursen, 1DV409.
 
 Det finns väldigt många liknande applikationer och det är kanske inte så konstigt med tanke på att flera av dem har någon form av API som man kan använda sig av, och som gör det enkelt att skapa sin egen väderapplikation. 
@@ -28,7 +29,7 @@ Det finns väldigt många liknande applikationer och det är kanske inte så kon
 Applikationen bygger på ASP.NET som har inbyggt skydd mot skadlig indata vilket förhindrar XSS-attacker, även ramverket Razor som används i vyerna har skydd mot indata. 
 Databasen använder ramverket Entity Framework och frågespråket LINQ som ger skydd för SQL-injections.
 Hjälpmetoden AntiForgeryToken som ger skydd mot CRSF attacker är utkommenterad då token value dessvärre cachas med appcache.
-Jag ser dock inte detta som en säkerhetsrisk i applikationen då det inte finns anledning att göra en CSRF attack på applikationen. 
+Jag ser dock inte detta som en säkerhetsrisk då applikationen inte är sårbar mor CSRF attacker.
 All databas kommunikation sker genom användaren Appuser som har särskilda rättigheter.
 
 ### Prestandaoptimering

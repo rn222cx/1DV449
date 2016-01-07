@@ -34,7 +34,7 @@ All databas kommunikation sker genom användaren Appuser som har särskilda rät
 
 ### Prestandaoptimering
 
-All CSS och JavaScript/jQuery bibliotek är av minimerad version. Alla CSS filer ligger i header sektionen och JavaScript ligger sist i body sektionen. Applikationen använder appcache för att cacha allt statisk på sidorna som ger en snabbare sidladdning.
+All CSS och JavaScript/jQuery bibliotek är av minimerad version. Alla CSS filer ligger i header sektionen och JavaScript filerna ligger sist i body sektionen. Applikationen använder appcache för att cacha allt statisk på sidorna som ger en snabbare sidladdning.
 All data som hämtas från GeoNames lagras i databasen för att minska belastningen hos GeoNames samt ger en mer optimerad applikation.
 All väderdata hämtas från openWeatherMap och lagras i databasen i minst 10 minuter då det är både ett krav från openWeatherMaps och för optimeringen.
 

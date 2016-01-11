@@ -55,3 +55,5 @@ Jag har haft en del svårigheter med att läsa ut data från API:erna samt att h
 Jag tycker projektet har varit väldigt utvecklande och har fått lära mig många nya tekniker. 
 Offline-first är något helt nytt för mig och jag kommer definitivt att använda mig av det i mina nästkommande projekt om det är tillämpligt. 
 Som vanligt fungerar applikationen problemfritt lokalt men dessvärre inte vid publicering, detta har dock inte varit några större problem eftersom det beskrivande felmeddelandet har gjort det lätt att åtgärda problemen.
+
+Jag kommer inte fortsätta med projektet då det finns väldigt många liknander applikationer och jag hade säkerligen gjort något annat om jag inte hade brist på ideer eller börjat tänka på det tidigare.
